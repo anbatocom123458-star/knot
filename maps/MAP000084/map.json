@@ -1,0 +1,187 @@
+{
+  "id": "MAP000084",
+  "name": "Wind Left",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 704,
+    "height": 640
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 128,
+    "y": 512
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_019",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0001_019",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0002_019",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0003_019",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0004_019",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0008_005",
+      "assetId": "Z04",
+      "x": 256,
+      "y": 160
+    },
+    {
+      "instanceId": "tile_0008_006",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0008_007",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 224
+    },
+    {
+      "instanceId": "tile_0008_008",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 256
+    },
+    {
+      "instanceId": "tile_0008_009",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 288
+    },
+    {
+      "instanceId": "tile_0008_010",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0008_011",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 352
+    },
+    {
+      "instanceId": "tile_0008_012",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0008_013",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 416
+    },
+    {
+      "instanceId": "tile_0008_014",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0008_015",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 480
+    },
+    {
+      "instanceId": "tile_0008_016",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0008_017",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 544
+    },
+    {
+      "instanceId": "tile_0008_018",
+      "assetId": "Z05",
+      "x": 256,
+      "y": 576
+    },
+    {
+      "instanceId": "tile_0008_019",
+      "assetId": "Z06",
+      "x": 256,
+      "y": 608
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0006_018",
+      "assetId": "OB01",
+      "x": 192,
+      "y": 576,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0013_005",
+    "assetId": "IT01",
+    "x": 416,
+    "y": 160,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [],
+  "items": [
+    {
+      "instanceId": "item_gem_0010_009",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 320,
+      "y": 288,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [],
+  "waterZones": [],
+  "lavaZones": [],
+  "weather": {
+    "type": "wind",
+    "windX": -0.7,
+    "particleDensity": 0.4
+  }
+}

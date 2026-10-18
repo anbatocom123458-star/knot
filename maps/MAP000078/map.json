@@ -1,0 +1,143 @@
+{
+  "id": "MAP000078",
+  "name": "Lava Jump",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 896,
+    "height": 576
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 64,
+    "y": 416
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_008",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 256
+    },
+    {
+      "instanceId": "tile_0001_008",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 256
+    },
+    {
+      "instanceId": "tile_0002_008",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 256
+    },
+    {
+      "instanceId": "tile_0003_008",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 256
+    },
+    {
+      "instanceId": "tile_0004_008",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 256
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0009_013",
+      "assetId": "OB01",
+      "x": 288,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0011_013",
+      "assetId": "OB01",
+      "x": 352,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0026_016",
+    "assetId": "IT01",
+    "x": 832,
+    "y": 512,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [],
+  "items": [
+    {
+      "instanceId": "item_coin_0011_005",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 352,
+      "y": 160,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_gem_0015_005",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 480,
+      "y": 160,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "instanceId": "eq_high_jump_boots_0010_013",
+      "assetId": "EQP_HIGH_JUMP_BOOTS",
+      "kind": "high_jump_boots",
+      "x": 320,
+      "y": 416,
+      "width": 32,
+      "height": 32,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "waterZones": [],
+  "lavaZones": [
+    {
+      "instanceId": "lava_0008_014",
+      "x": 256,
+      "y": 448,
+      "width": 256,
+      "height": 128,
+      "damagePerSecond": 1.0
+    }
+  ],
+  "weather": null
+}

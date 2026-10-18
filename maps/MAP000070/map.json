@@ -1,0 +1,169 @@
+{
+  "id": "MAP000070",
+  "name": "Water Final",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 1024,
+    "height": 704
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 128,
+    "y": 576
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_020",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 640
+    },
+    {
+      "instanceId": "tile_0001_020",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 640
+    },
+    {
+      "instanceId": "tile_0002_020",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 640
+    },
+    {
+      "instanceId": "tile_0003_020",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 640
+    },
+    {
+      "instanceId": "tile_0004_020",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 640
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0007_019",
+      "assetId": "OB01",
+      "x": 224,
+      "y": 608,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0009_019",
+      "assetId": "OB01",
+      "x": 288,
+      "y": 608,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0011_019",
+      "assetId": "OB01",
+      "x": 352,
+      "y": 608,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0013_019",
+      "assetId": "OB01",
+      "x": 416,
+      "y": 608,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0022_005",
+    "assetId": "IT01",
+    "x": 704,
+    "y": 160,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [],
+  "items": [
+    {
+      "instanceId": "item_coin_0014_013",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 448,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_bomb_0016_009",
+      "assetId": "IT04",
+      "kind": "bomb",
+      "x": 512,
+      "y": 288,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "instanceId": "eq_bomb_0008_016",
+      "assetId": "EQP_BOMB",
+      "kind": "bomb",
+      "x": 256,
+      "y": 512,
+      "width": 32,
+      "height": 32,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "waterZones": [
+    {
+      "instanceId": "water_0006_012",
+      "x": 192,
+      "y": 384,
+      "width": 320,
+      "height": 320,
+      "moveFactor": 0.4,
+      "gravityFactor": 0.25,
+      "sink": true
+    }
+  ],
+  "lavaZones": [],
+  "weather": null
+}

@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "gameId": "KNOT",
+  "configStatus": "reference",
+  "map": {
+    "initialMapId": "MAP000001",
+    "tileSize": 32
+  },
+  "platforms": ["desktop-browser", "mobile-browser"],
+  "players": {
+    "currentDemoCount": 1,
+    "targetMaximum": 4
+  },
+  "renderer": {
+    "type": "canvas-2d",
+    "logicalWidth": 960,
+    "logicalHeight": 540,
+    "imageSmoothing": false
+  },
+  "player": {
+    "hitbox": { "width": 24, "height": 32 },
+    "movement": {
+      "maximumSpeed": 220,
+      "groundAcceleration": 1500,
+      "airAcceleration": 900,
+      "groundFriction": 1700,
+      "airFriction": 240
+    },
+    "physics": {
+      "gravity": 1450,
+      "maximumFallSpeed": 780
+    },
+    "jump": {
+      "maximumJumps": 2,
+      "firstJumpVelocity": -520,
+      "secondJumpVelocity": -470,
+      "triggerOnPressEdge": true
+    }
+  },
+  "input": {
+    "left": ["ArrowLeft", "KeyA", "touch-left"],
+    "right": ["ArrowRight", "KeyD", "touch-right"],
+    "jump": ["Space", "touch-jump"]
+  },
+  "notes": "File tham chieu thong so hien tai, chua duoc runtime doc truc tiep. Build/dev toolchain van duoc cau hinh trong package.json va vite.config.ts."
+}

@@ -13,7 +13,10 @@
       <header class="topbar">
         <a class="wordmark" href="./" aria-label="KNOT, quay lại MAP000001">KNOT<span>.</span></a>
         <div class="map-label"><span class="live-mark"></span><span>MAP000001</span><span class="separator">/</span><span>FIRST KNOT</span></div>
-        <button class="reset-button" id="reset" type="button" aria-label="Choi lai man" title="Choi lai man">↻</button>
+        <div class="topbar-actions">
+          <button class="reset-button" id="pause" type="button" aria-label="Tạm dừng" title="Tạm dừng (Esc)">⏸</button>
+          <button class="reset-button" id="reset" type="button" aria-label="Choi lai man" title="Choi lai man">↻</button>
+        </div>
       </header>
 
       <section class="game-shell" aria-label="Ban choi">
@@ -23,19 +26,181 @@
           <span id="status">Sẵn sàng</span>
         </div>
         <div class="map-stamp">K-001 <span>•</span> 1 PLAYER</div>
-      </section>
 
-      <section class="controls" aria-label="Điều khiển">
-        <div class="movement-controls">
-          <button class="control-button direction" type="button" data-control="left" aria-label="Di chuyển sang trái">←</button>
-          <button class="control-button direction" type="button" data-control="right" aria-label="Di chuyển sang phải">→</button>
-        </div>
-        <button class="control-button jump-button" type="button" data-control="jump" aria-label="Nhảy">↑ <span>JUMP</span></button>
-        <button class="control-button bomb-button" type="button" data-control="bomb" aria-label="Ném bom">✱ <span>BOMB</span></button>
-        <div class="keyboard-hint"><kbd>A</kbd><kbd>D</kbd><span>hoặc</span><kbd>←</kbd><kbd>→</kbd><span>di chuyển</span><i></i><kbd>SPACE</kbd><span>nhảy / nhảy kép / nhảy tường</span><i></i><kbd>B</kbd><span>ném bom</span></div>
+        <section class="controls" aria-label="Điều khiển">
+          <div class="joystick-wrapper" aria-label="Joystick di chuyển">
+            <div id="joystick" class="joystick"></div>
+          </div>
+          <div class="action-buttons" aria-label="Nút hành động">
+            <button class="control-button jump-button" type="button" data-control="jump" aria-label="Nhảy">↑ <span>JUMP</span></button>
+            <button class="control-button bomb-button" type="button" data-control="bomb" aria-label="Ném bom">✱ <span>BOMB</span></button>
+          </div>
+        </section>
       </section>
 
       <footer class="footer"><span>KNOT FIELD TEST</span><span>ASSET SET 01 <b>·</b> MANUAL MAP</span></footer>
     </main>
+
+    <div id="screen-layer" class="screen-layer" hidden>
+      <section class="screen" data-screen="main-menu" hidden aria-label="Menu chính">
+        <p class="screen-kicker">PLATFORMER · MANUAL MAPS</p>
+        <h1 class="screen-logo">KNOT<span>.</span></h1>
+        <div class="screen-actions">
+          <button class="btn accent" type="button" data-action="play">Chơi</button>
+          <button class="btn secondary" type="button" data-action="levelselect">Chọn màn</button>
+          <button class="btn secondary" type="button" data-action="settings">Cài đặt</button>
+          <button class="btn secondary" type="button" data-action="account">Tài khoản</button>
+          <button class="btn secondary" type="button" data-action="multiplayer">Đối tác</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="level-select" hidden aria-label="Chọn màn">
+        <h2 class="screen-title">Chọn màn</h2>
+        <p class="screen-sub">Chỉ các map được thiết kế thủ công mới mở.</p>
+        <div class="level-list">
+          <button class="level-card" type="button" data-action="play">
+            <span class="level-id">MAP000001</span>
+            <span class="level-name">FIRST KNOT</span>
+            <span class="level-meta">Đã thiết kế · 4 quái · 6 vật phẩm · 3 cột tường</span>
+          </button>
+          <button class="level-card" type="button" disabled title="Map chưa được thiết kế — sẽ mở sau">
+            <span class="level-id">MAP000002</span>
+            <span class="level-name">CHƯA THIẾT KẾ</span>
+            <span class="level-meta">Không mở cho tới khi map được dựng tay</span>
+          </button>
+        </div>
+        <button class="btn secondary" type="button" data-action="back-main">Quay lại</button>
+      </section>
+
+      <section class="screen" data-screen="pause" hidden aria-label="Tạm dừng">
+        <h2 class="screen-title">Tạm dừng</h2>
+        <p class="screen-sub">Trò chơi dừng hoàn toàn cho tới khi tiếp tục.</p>
+        <div class="screen-actions">
+          <button class="btn accent" type="button" data-action="resume">Tiếp tục</button>
+          <button class="btn secondary" type="button" data-action="restart">Chơi lại</button>
+          <button class="btn secondary" type="button" data-action="mainmenu">Menu chính</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="victory" hidden aria-label="Victory">
+        <p class="screen-kicker">MAP000001 · FIELD CLEAR</p>
+        <h2 class="screen-title">Cổng đã mở!</h2>
+        <p class="screen-sub">Bạn đã về đích an toàn.</p>
+        <div class="screen-actions">
+          <button class="btn accent" type="button" data-action="play-next">Màn tiếp theo</button>
+          <button class="btn accent" type="button" data-action="retry">Chơi lại</button>
+          <button class="btn secondary" type="button" data-action="levelselect">Chọn màn</button>
+          <button class="btn secondary" type="button" data-action="mainmenu">Menu chính</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="gameover" hidden aria-label="Game over">
+        <p class="screen-kicker">MAP000001</p>
+        <h2 class="screen-title">Hết máu!</h2>
+        <p class="screen-sub">Nhân vật đã gục ngã — thử lại thôi.</p>
+        <div class="screen-actions">
+          <button class="btn accent" type="button" data-action="retry">Chơi lại</button>
+          <button class="btn secondary" type="button" data-action="mainmenu">Menu chính</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="login" hidden aria-label="Đăng nhập">
+        <h2 class="screen-title">Đăng nhập</h2>
+        <p class="screen-sub" id="login-error" style="color:#df6349; font-size:11px; margin-bottom:12px;"></p>
+        <div class="auth-form">
+          <label class="auth-label">Tên đăng nhập</label>
+          <input type="text" id="login-username" class="auth-input" autocomplete="username" />
+          <label class="auth-label">Mật khẩu</label>
+          <input type="password" id="login-password" class="auth-input" autocomplete="current-password" />
+        </div>
+        <div class="screen-actions">
+          <button class="btn accent" type="button" data-action="auth-login">Đăng nhập</button>
+          <button class="btn secondary" type="button" data-action="auth-register">Chưa có tài khoản? Đăng ký</button>
+          <button class="btn secondary" type="button" data-action="back-main">Quay lại</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="register" hidden aria-label="Đăng ký">
+        <h2 class="screen-title">Đăng ký</h2>
+        <p class="screen-sub" id="register-error" style="color:#df6349; font-size:11px; margin-bottom:12px;"></p>
+        <div class="auth-form">
+          <label class="auth-label">Tên đăng nhập</label>
+          <input type="text" id="reg-username" class="auth-input" autocomplete="new-username" />
+          <label class="auth-label">Tên hiển thị</label>
+          <input type="text" id="reg-display" class="auth-input" autocomplete="name" />
+          <label class="auth-label">Mật khẩu</label>
+          <input type="password" id="reg-password" class="auth-input" autocomplete="new-password" />
+        </div>
+        <div class="screen-actions">
+          <button class="btn accent" type="button" data-action="auth-register-submit">Tạo tài khoản</button>
+          <button class="btn secondary" type="button" data-action="auth-login">Đã có tài khoản? Đăng nhập</button>
+          <button class="btn secondary" type="button" data-action="back-main">Quay lại</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="account" hidden aria-label="Tài khoản">
+        <h2 class="screen-title">Tài khoản</h2>
+        <p class="screen-sub" id="account-info" style="color:var(--muted); font-size:12px; margin-bottom:16px;"></p>
+        <div class="screen-actions">
+          <button class="btn accent" type="button" data-action="auth-logout">Đăng xuất</button>
+          <button class="btn secondary" type="button" data-action="back-main">Quay lại</button>
+        </div>
+      </section>
+
+      <section class="screen" data-screen="settings" hidden aria-label="Cài đặt">
+        <h2 class="screen-title">Cài đặt</h2>
+        <div class="settings-group">
+          <div class="settings-row">
+            <span>Âm thanh</span>
+            <button class="btn secondary" type="button" data-action="audio-toggle" id="audio-toggle">Bật</button>
+          </div>
+          <div class="settings-row">
+            <span>Âm lượng hiệu ứng</span>
+            <input type="range" id="sfx-volume" min="0" max="1" step="0.1" value="0.7" />
+          </div>
+          <div class="settings-row">
+            <span>Âm lượng nhạc</span>
+            <input type="range" id="music-volume" min="0" max="1" step="0.1" value="0.5" />
+          </div>
+          <div class="settings-row">
+            <span>Điều khiển cảm ứng</span>
+            <button class="btn secondary" type="button" data-action="controls-layout" disabled>Bố cục joystick <span class="badge">SẮP CÓ</span></button>
+          </div>
+        </div>
+        <div class="screen-actions">
+          <button class="btn secondary" type="button" data-action="back-main">Quay lại</button>
+        </div>
+      </section>
+      <section class="screen" data-screen="multiplayer" hidden aria-label="Đối tác">
+        <h2 class="screen-title">Đối tác (Co-op)</h2>
+        <p class="screen-sub" id="mp-status" style="color:var(--muted); font-size:12px; margin-bottom:12px;">Chưa kết nối.</p>
+        <div class="auth-form">
+          <label class="auth-label">Mã phòng (để trống để tạo mới)</label>
+          <input type="text" id="mp-room-input" class="auth-input" autocomplete="off" />
+        </div>
+        <div class="screen-actions">
+          <button class="btn accent" type="button" data-action="mp-create">Tạo phòng</button>
+          <button class="btn secondary" type="button" data-action="mp-join">Tham gia</button>
+        </div>
+        <p class="screen-sub" id="mp-room-code" style="margin-top:12px;">Mã phòng: —</p>
+        <div class="settings-group">
+          <div class="settings-row"><span>Thành viên</span></div>
+          <ul id="mp-members" style="list-style:none; padding:0; margin:0; text-align:left; font-size:12px;"></ul>
+        </div>
+        <div class="screen-actions">
+          <button class="btn accent" type="button" data-action="mp-start">Bắt đầu (host)</button>
+          <button class="btn secondary" type="button" data-action="mp-leave">Rời phòng</button>
+          <button class="btn secondary" type="button" data-action="back-main">Quay lại</button>
+        </div>
+      </section>
+    </div>
+
+    <div id="orientation-overlay" aria-hidden="true">
+      <div class="orientation-body">
+        <div class="orientation-icon">↻</div>
+        <h2 class="screen-title">Xoay màn hình ngang</h2>
+        <p class="screen-sub">Vui lòng giữ thiết bị theo chiều ngang để chơi KNOT.</p>
+      </div>
+    </div>
   </body>
 </html>

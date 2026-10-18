@@ -1,0 +1,224 @@
+{
+  "id": "MAP000048",
+  "name": "High Jump Boost",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 960,
+    "height": 576
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 64,
+    "y": 416
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_014",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0001_014",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0002_014",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0003_014",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0004_014",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0008_006",
+      "assetId": "Z01",
+      "x": 256,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0009_006",
+      "assetId": "Z02",
+      "x": 288,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0010_006",
+      "assetId": "Z03",
+      "x": 320,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0014_006",
+      "assetId": "Z01",
+      "x": 448,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0015_006",
+      "assetId": "Z02",
+      "x": 480,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0016_006",
+      "assetId": "Z03",
+      "x": 512,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0020_006",
+      "assetId": "Z01",
+      "x": 640,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0021_006",
+      "assetId": "Z02",
+      "x": 672,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0022_006",
+      "assetId": "Z03",
+      "x": 704,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0026_014",
+      "assetId": "Z01",
+      "x": 832,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0027_014",
+      "assetId": "Z02",
+      "x": 864,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0028_014",
+      "assetId": "Z02",
+      "x": 896,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0029_014",
+      "assetId": "Z03",
+      "x": 928,
+      "y": 448
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0006_013",
+      "assetId": "OB01",
+      "x": 192,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0012_012",
+      "assetId": "OB01",
+      "x": 384,
+      "y": 384,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0018_012",
+      "assetId": "OB01",
+      "x": 576,
+      "y": 384,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0027_013",
+    "assetId": "IT01",
+    "x": 864,
+    "y": 416,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [],
+  "items": [
+    {
+      "instanceId": "item_coin_0009_005",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 288,
+      "y": 160,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_gem_0015_005",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 480,
+      "y": 160,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "instanceId": "eq_high_jump_boots_0007_013",
+      "assetId": "EQP_HIGH_JUMP_BOOTS",
+      "kind": "high_jump_boots",
+      "x": 224,
+      "y": 416,
+      "width": 32,
+      "height": 32,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "waterZones": [],
+  "lavaZones": [],
+  "weather": null
+}

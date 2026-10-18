@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "system": "item-upgrades",
+  "enabled": false,
+  "designStatus": "pending",
+  "upgradeableAssetIds": [],
+  "currencies": [],
+  "tiers": [],
+  "notes": "Chua co item gameplay nao duoc xac dinh la co the nang cap. IT01 la cong thoat, khong phai item nang cap."
+}

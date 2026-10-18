@@ -1,0 +1,128 @@
+{
+  "id": "MAP000087",
+  "name": "Rain & Enemy",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 960,
+    "height": 576
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 64,
+    "y": 416
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_014",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0001_014",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0002_014",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0003_014",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0004_014",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 448
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0015_013",
+      "assetId": "OB01",
+      "x": 480,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0028_014",
+    "assetId": "IT01",
+    "x": 896,
+    "y": 448,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [
+    {
+      "instanceId": "enemy_0018_012",
+      "assetId": "EN01",
+      "x": 576,
+      "y": 384,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 14,
+        "width": 24,
+        "height": 18
+      },
+      "patrol": {
+        "minX": 448,
+        "maxX": 640
+      },
+      "speed": 50
+    }
+  ],
+  "items": [
+    {
+      "instanceId": "item_coin_0017_013",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 544,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_gem_0020_013",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 640,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [],
+  "waterZones": [],
+  "lavaZones": [],
+  "weather": {
+    "type": "rain",
+    "windX": 0,
+    "particleDensity": 0.5
+  }
+}

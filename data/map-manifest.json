@@ -1,0 +1,1632 @@
+{
+  "schemaVersion": 1,
+  "project": "KNOT",
+  "totalMaps": 100,
+  "notes": "Metadata cho UI Level Select. Tất cả 100 map đều có file that trong maps/<ID>/map.json. Manifest KHONG thay the file map rieng.",
+  "maps": [
+    {
+      "id": "MAP000001",
+      "name": "First Knot",
+      "group": "tutorial",
+      "difficulty": 1,
+      "mechanics": [
+        "walk",
+        "jump",
+        "double-jump",
+        "gap",
+        "hazard",
+        "exit",
+        "collect"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000002",
+      "name": "Second Step",
+      "group": "tutorial",
+      "difficulty": 2,
+      "mechanics": [
+        "walk",
+        "jump",
+        "double-jump",
+        "gap",
+        "hazard",
+        "exit",
+        "collect"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000003",
+      "name": "Low Hops",
+      "group": "tutorial",
+      "difficulty": 3,
+      "mechanics": [
+        "walk",
+        "jump",
+        "double-jump",
+        "gap",
+        "hazard",
+        "exit",
+        "collect"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000004",
+      "name": "Spike Lesson",
+      "group": "tutorial",
+      "difficulty": 3,
+      "mechanics": [
+        "walk",
+        "jump",
+        "double-jump",
+        "gap",
+        "hazard",
+        "exit",
+        "collect"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000005",
+      "name": "First Door",
+      "group": "tutorial",
+      "difficulty": 3,
+      "mechanics": [
+        "walk",
+        "jump",
+        "double-jump",
+        "gap",
+        "hazard",
+        "exit",
+        "collect"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000006",
+      "name": "Gap One",
+      "group": "tutorial",
+      "difficulty": 3,
+      "mechanics": [
+        "walk",
+        "jump",
+        "double-jump",
+        "gap",
+        "hazard",
+        "exit",
+        "collect"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000007",
+      "name": "Gap Two",
+      "group": "tutorial",
+      "difficulty": 3,
+      "mechanics": [
+        "walk",
+        "jump",
+        "double-jump",
+        "gap",
+        "hazard",
+        "exit",
+        "collect"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000008",
+      "name": "High Ledge",
+      "group": "tutorial",
+      "difficulty": 3,
+      "mechanics": [
+        "walk",
+        "jump",
+        "double-jump",
+        "gap",
+        "hazard",
+        "exit",
+        "collect"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000009",
+      "name": "Falling Coins",
+      "group": "tutorial",
+      "difficulty": 3,
+      "mechanics": [
+        "walk",
+        "jump",
+        "double-jump",
+        "gap",
+        "hazard",
+        "exit",
+        "collect"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000010",
+      "name": "Narrow Bridge",
+      "group": "tutorial",
+      "difficulty": 3,
+      "mechanics": [
+        "walk",
+        "jump",
+        "double-jump",
+        "gap",
+        "hazard",
+        "exit",
+        "collect"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000011",
+      "name": "Spike Corridor",
+      "group": "precision",
+      "difficulty": 4,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000012",
+      "name": "Double Trouble",
+      "group": "precision",
+      "difficulty": 4,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000013",
+      "name": "Sky Coins",
+      "group": "precision",
+      "difficulty": 4,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000014",
+      "name": "Pit Chain",
+      "group": "precision",
+      "difficulty": 5,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000015",
+      "name": "Precision Gate",
+      "group": "precision",
+      "difficulty": 5,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000016",
+      "name": "Wall Touch",
+      "group": "precision",
+      "difficulty": 5,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000017",
+      "name": "First Wall Jump",
+      "group": "precision",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000018",
+      "name": "Wall Column",
+      "group": "precision",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000019",
+      "name": "Chimney Up",
+      "group": "precision",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000020",
+      "name": "Slide Down",
+      "group": "precision",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000021",
+      "name": "Twin Walls",
+      "group": "precision",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000022",
+      "name": "Wall Gap",
+      "group": "precision",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000023",
+      "name": "High Chimney",
+      "group": "precision",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000024",
+      "name": "Wall Gauntlet",
+      "group": "precision",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000025",
+      "name": "Wall Gate",
+      "group": "precision",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "gap",
+        "double-jump",
+        "hazard",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000026",
+      "name": "First Slime",
+      "group": "enemies",
+      "difficulty": 4,
+      "mechanics": [
+        "enemy",
+        "stomp",
+        "bomb",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000027",
+      "name": "Patrol Watch",
+      "group": "enemies",
+      "difficulty": 4,
+      "mechanics": [
+        "enemy",
+        "stomp",
+        "bomb",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000028",
+      "name": "Stomp Chain",
+      "group": "enemies",
+      "difficulty": 4,
+      "mechanics": [
+        "enemy",
+        "stomp",
+        "bomb",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000029",
+      "name": "First Bomb",
+      "group": "enemies",
+      "difficulty": 5,
+      "mechanics": [
+        "enemy",
+        "stomp",
+        "bomb",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000030",
+      "name": "Bomb Toss",
+      "group": "enemies",
+      "difficulty": 5,
+      "mechanics": [
+        "enemy",
+        "stomp",
+        "bomb",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000031",
+      "name": "Slime Bridge",
+      "group": "enemies",
+      "difficulty": 5,
+      "mechanics": [
+        "enemy",
+        "stomp",
+        "bomb",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000032",
+      "name": "Bomb Door",
+      "group": "enemies",
+      "difficulty": 6,
+      "mechanics": [
+        "enemy",
+        "stomp",
+        "bomb",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000033",
+      "name": "Danger Patrol",
+      "group": "mixed",
+      "difficulty": 5,
+      "mechanics": [
+        "jump",
+        "enemy",
+        "hazard",
+        "bomb",
+        "wall-slide",
+        "wall-jump",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000034",
+      "name": "Blast Zone",
+      "group": "mixed",
+      "difficulty": 5,
+      "mechanics": [
+        "jump",
+        "enemy",
+        "hazard",
+        "bomb",
+        "wall-slide",
+        "wall-jump",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000035",
+      "name": "Enemy Gate",
+      "group": "mixed",
+      "difficulty": 5,
+      "mechanics": [
+        "jump",
+        "enemy",
+        "hazard",
+        "bomb",
+        "wall-slide",
+        "wall-jump",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000036",
+      "name": "Mixed One",
+      "group": "mixed",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "enemy",
+        "hazard",
+        "bomb",
+        "wall-slide",
+        "wall-jump",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000037",
+      "name": "Mixed Two",
+      "group": "mixed",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "enemy",
+        "hazard",
+        "bomb",
+        "wall-slide",
+        "wall-jump",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000038",
+      "name": "Mixed Three",
+      "group": "mixed",
+      "difficulty": 6,
+      "mechanics": [
+        "jump",
+        "enemy",
+        "hazard",
+        "bomb",
+        "wall-slide",
+        "wall-jump",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000039",
+      "name": "Mixed Four",
+      "group": "mixed",
+      "difficulty": 7,
+      "mechanics": [
+        "jump",
+        "enemy",
+        "hazard",
+        "bomb",
+        "wall-slide",
+        "wall-jump",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000040",
+      "name": "Mixed Five",
+      "group": "mixed",
+      "difficulty": 7,
+      "mechanics": [
+        "jump",
+        "enemy",
+        "hazard",
+        "bomb",
+        "wall-slide",
+        "wall-jump",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000041",
+      "name": "Mixed Six",
+      "group": "equipment",
+      "difficulty": 6,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000042",
+      "name": "Mixed Seven",
+      "group": "equipment",
+      "difficulty": 6,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000043",
+      "name": "Mixed Eight",
+      "group": "equipment",
+      "difficulty": 6,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000044",
+      "name": "Mixed Nine",
+      "group": "equipment",
+      "difficulty": 7,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000045",
+      "name": "Mixed Gate",
+      "group": "equipment",
+      "difficulty": 7,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000046",
+      "name": "Shield Intro",
+      "group": "equipment",
+      "difficulty": 7,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000047",
+      "name": "Magnet Trail",
+      "group": "equipment",
+      "difficulty": 8,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000048",
+      "name": "High Jump Boost",
+      "group": "equipment",
+      "difficulty": 8,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000049",
+      "name": "Flying Start",
+      "group": "equipment",
+      "difficulty": 8,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000050",
+      "name": "Healing Hub",
+      "group": "equipment",
+      "difficulty": 9,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000051",
+      "name": "Equipment Mix",
+      "group": "equipment",
+      "difficulty": 9,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000052",
+      "name": "Bomb & Boots",
+      "group": "equipment",
+      "difficulty": 9,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000053",
+      "name": "Fly & Shield",
+      "group": "equipment",
+      "difficulty": 10,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000054",
+      "name": "Magnet Healing",
+      "group": "equipment",
+      "difficulty": 10,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000055",
+      "name": "Equipment Gate",
+      "group": "equipment",
+      "difficulty": 10,
+      "mechanics": [
+        "shield",
+        "magnet",
+        "flying_boots",
+        "high_jump_boots",
+        "healing",
+        "bomb",
+        "enemy",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000056",
+      "name": "First Water",
+      "group": "water",
+      "difficulty": 6,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000057",
+      "name": "Water Stream",
+      "group": "water",
+      "difficulty": 6,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000058",
+      "name": "Water Puzzle",
+      "group": "water",
+      "difficulty": 6,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000059",
+      "name": "Deep Water",
+      "group": "water",
+      "difficulty": 7,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000060",
+      "name": "Water & Enemy",
+      "group": "water",
+      "difficulty": 7,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000061",
+      "name": "Water Gauntlet",
+      "group": "water",
+      "difficulty": 7,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000062",
+      "name": "Water Door",
+      "group": "water",
+      "difficulty": 8,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000063",
+      "name": "Swim Up",
+      "group": "water",
+      "difficulty": 8,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000064",
+      "name": "Water Mix",
+      "group": "water",
+      "difficulty": 8,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000065",
+      "name": "Water Gate",
+      "group": "water",
+      "difficulty": 9,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000066",
+      "name": "Deep Swim",
+      "group": "water",
+      "difficulty": 9,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000067",
+      "name": "Water Current",
+      "group": "water",
+      "difficulty": 9,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000068",
+      "name": "Water Shield",
+      "group": "water",
+      "difficulty": 10,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000069",
+      "name": "Water Magnet",
+      "group": "water",
+      "difficulty": 10,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000070",
+      "name": "Water Final",
+      "group": "water",
+      "difficulty": 10,
+      "mechanics": [
+        "water",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000071",
+      "name": "First Lava",
+      "group": "lava",
+      "difficulty": 7,
+      "mechanics": [
+        "lava",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots",
+        "shield"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000072",
+      "name": "Lava Pit",
+      "group": "lava",
+      "difficulty": 7,
+      "mechanics": [
+        "lava",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots",
+        "shield"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000073",
+      "name": "Lava Gauntlet",
+      "group": "lava",
+      "difficulty": 8,
+      "mechanics": [
+        "lava",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots",
+        "shield"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000074",
+      "name": "Lava & Enemy",
+      "group": "lava",
+      "difficulty": 8,
+      "mechanics": [
+        "lava",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots",
+        "shield"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000075",
+      "name": "Lava Door",
+      "group": "lava",
+      "difficulty": 9,
+      "mechanics": [
+        "lava",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots",
+        "shield"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000076",
+      "name": "Lava Mix",
+      "group": "lava",
+      "difficulty": 9,
+      "mechanics": [
+        "lava",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots",
+        "shield"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000077",
+      "name": "Lava Shield",
+      "group": "lava",
+      "difficulty": 10,
+      "mechanics": [
+        "lava",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots",
+        "shield"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000078",
+      "name": "Lava Jump",
+      "group": "lava",
+      "difficulty": 10,
+      "mechanics": [
+        "lava",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots",
+        "shield"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000079",
+      "name": "Lava Fly",
+      "group": "lava",
+      "difficulty": 11,
+      "mechanics": [
+        "lava",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots",
+        "shield"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000080",
+      "name": "Lava Final",
+      "group": "lava",
+      "difficulty": 11,
+      "mechanics": [
+        "lava",
+        "jump",
+        "double-jump",
+        "bomb",
+        "enemy",
+        "exit",
+        "flying_boots",
+        "shield"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000081",
+      "name": "Sunny Day",
+      "group": "weather",
+      "difficulty": 6,
+      "mechanics": [
+        "sunny",
+        "rain",
+        "wind",
+        "storm",
+        "jump",
+        "gap",
+        "collect",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000082",
+      "name": "Rain Run",
+      "group": "weather",
+      "difficulty": 6,
+      "mechanics": [
+        "sunny",
+        "rain",
+        "wind",
+        "storm",
+        "jump",
+        "gap",
+        "collect",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000083",
+      "name": "Wind Push",
+      "group": "weather",
+      "difficulty": 6,
+      "mechanics": [
+        "sunny",
+        "rain",
+        "wind",
+        "storm",
+        "jump",
+        "gap",
+        "collect",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000084",
+      "name": "Wind Left",
+      "group": "weather",
+      "difficulty": 7,
+      "mechanics": [
+        "sunny",
+        "rain",
+        "wind",
+        "storm",
+        "jump",
+        "gap",
+        "collect",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000085",
+      "name": "Storm One",
+      "group": "weather",
+      "difficulty": 7,
+      "mechanics": [
+        "sunny",
+        "rain",
+        "wind",
+        "storm",
+        "jump",
+        "gap",
+        "collect",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000086",
+      "name": "Storm Run",
+      "group": "weather",
+      "difficulty": 7,
+      "mechanics": [
+        "sunny",
+        "rain",
+        "wind",
+        "storm",
+        "jump",
+        "gap",
+        "collect",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000087",
+      "name": "Rain & Enemy",
+      "group": "weather",
+      "difficulty": 8,
+      "mechanics": [
+        "sunny",
+        "rain",
+        "wind",
+        "storm",
+        "jump",
+        "gap",
+        "collect",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000088",
+      "name": "Wind & Bomb",
+      "group": "weather",
+      "difficulty": 8,
+      "mechanics": [
+        "sunny",
+        "rain",
+        "wind",
+        "storm",
+        "jump",
+        "gap",
+        "collect",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000089",
+      "name": "Storm Shield",
+      "group": "weather",
+      "difficulty": 8,
+      "mechanics": [
+        "sunny",
+        "rain",
+        "wind",
+        "storm",
+        "jump",
+        "gap",
+        "collect",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000090",
+      "name": "Weather Gate",
+      "group": "weather",
+      "difficulty": 9,
+      "mechanics": [
+        "sunny",
+        "rain",
+        "wind",
+        "storm",
+        "jump",
+        "gap",
+        "collect",
+        "exit"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000091",
+      "name": "Expert Mix One",
+      "group": "expert",
+      "difficulty": 9,
+      "mechanics": [
+        "wall-jump",
+        "double-jump",
+        "enemy",
+        "bomb",
+        "water",
+        "lava",
+        "exit",
+        "shield",
+        "flying_boots",
+        "magnet",
+        "healing"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000092",
+      "name": "Expert Water Lava",
+      "group": "expert",
+      "difficulty": 9,
+      "mechanics": [
+        "wall-jump",
+        "double-jump",
+        "enemy",
+        "bomb",
+        "water",
+        "lava",
+        "exit",
+        "shield",
+        "flying_boots",
+        "magnet",
+        "healing"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000093",
+      "name": "Expert Equipment Storm",
+      "group": "expert",
+      "difficulty": 10,
+      "mechanics": [
+        "wall-jump",
+        "double-jump",
+        "enemy",
+        "bomb",
+        "water",
+        "lava",
+        "exit",
+        "shield",
+        "flying_boots",
+        "magnet",
+        "healing"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000094",
+      "name": "Expert Bomb Lava",
+      "group": "expert",
+      "difficulty": 10,
+      "mechanics": [
+        "wall-jump",
+        "double-jump",
+        "enemy",
+        "bomb",
+        "water",
+        "lava",
+        "exit",
+        "shield",
+        "flying_boots",
+        "magnet",
+        "healing"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000095",
+      "name": "Expert Wall Water",
+      "group": "expert",
+      "difficulty": 11,
+      "mechanics": [
+        "wall-jump",
+        "double-jump",
+        "enemy",
+        "bomb",
+        "water",
+        "lava",
+        "exit",
+        "shield",
+        "flying_boots",
+        "magnet",
+        "healing"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000096",
+      "name": "Expert Magnet Wind",
+      "group": "expert",
+      "difficulty": 11,
+      "mechanics": [
+        "wall-jump",
+        "double-jump",
+        "enemy",
+        "bomb",
+        "water",
+        "lava",
+        "exit",
+        "shield",
+        "flying_boots",
+        "magnet",
+        "healing"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000097",
+      "name": "Expert Shield Heal",
+      "group": "expert",
+      "difficulty": 12,
+      "mechanics": [
+        "wall-jump",
+        "double-jump",
+        "enemy",
+        "bomb",
+        "water",
+        "lava",
+        "exit",
+        "shield",
+        "flying_boots",
+        "magnet",
+        "healing"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000098",
+      "name": "Expert Fly Lava",
+      "group": "expert",
+      "difficulty": 12,
+      "mechanics": [
+        "wall-jump",
+        "double-jump",
+        "enemy",
+        "bomb",
+        "water",
+        "lava",
+        "exit",
+        "shield",
+        "flying_boots",
+        "magnet",
+        "healing"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000099",
+      "name": "Expert All Mix",
+      "group": "expert",
+      "difficulty": 13,
+      "mechanics": [
+        "wall-jump",
+        "double-jump",
+        "enemy",
+        "bomb",
+        "water",
+        "lava",
+        "exit",
+        "shield",
+        "flying_boots",
+        "magnet",
+        "healing"
+      ],
+      "status": "available"
+    },
+    {
+      "id": "MAP000100",
+      "name": "Final Knot",
+      "group": "expert",
+      "difficulty": 13,
+      "mechanics": [
+        "wall-jump",
+        "double-jump",
+        "enemy",
+        "bomb",
+        "water",
+        "lava",
+        "exit",
+        "shield",
+        "flying_boots",
+        "magnet",
+        "healing"
+      ],
+      "status": "available"
+    }
+  ]
+}

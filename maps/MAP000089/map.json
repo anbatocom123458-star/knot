@@ -1,0 +1,162 @@
+{
+  "id": "MAP000089",
+  "name": "Storm Shield",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 960,
+    "height": 576
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 64,
+    "y": 416
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_014",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0001_014",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0002_014",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0003_014",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0004_014",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 448
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0015_013",
+      "assetId": "OB01",
+      "x": 480,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0017_013",
+      "assetId": "OB01",
+      "x": 544,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0019_013",
+      "assetId": "OB01",
+      "x": 608,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0021_013",
+      "assetId": "OB01",
+      "x": 672,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0026_010",
+    "assetId": "IT01",
+    "x": 832,
+    "y": 320,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [],
+  "items": [
+    {
+      "instanceId": "item_coin_0016_013",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 512,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_gem_0018_013",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 576,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "instanceId": "eq_shield_0015_013",
+      "assetId": "EQP_SHIELD",
+      "kind": "shield",
+      "x": 480,
+      "y": 416,
+      "width": 32,
+      "height": 32,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "waterZones": [],
+  "lavaZones": [],
+  "weather": {
+    "type": "storm",
+    "windX": 0.3,
+    "particleDensity": 0.6
+  }
+}

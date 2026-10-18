@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "system": "character-progression",
+  "enabled": false,
+  "designStatus": "pending",
+  "startingLevel": 1,
+  "maximumLevel": null,
+  "experience": {
+    "enabled": false,
+    "curve": null,
+    "thresholds": []
+  },
+  "perLevelRewards": [],
+  "notes": "Chua co thiet ke XP, gioi han cap hoac chi so nhan vat. Khong ap dung trong gameplay hien tai."
+}

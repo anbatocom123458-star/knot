@@ -1,0 +1,183 @@
+{
+  "id": "MAP000086",
+  "name": "Storm Run",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 1088,
+    "height": 576
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 64,
+    "y": 416
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_010",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0001_010",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0002_010",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0003_010",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0004_010",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0030_016",
+      "assetId": "Z01",
+      "x": 960,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0031_016",
+      "assetId": "Z02",
+      "x": 992,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0032_016",
+      "assetId": "Z02",
+      "x": 1024,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0033_016",
+      "assetId": "Z03",
+      "x": 1056,
+      "y": 512
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0011_013",
+      "assetId": "OB01",
+      "x": 352,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0013_013",
+      "assetId": "OB01",
+      "x": 416,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0019_013",
+      "assetId": "OB01",
+      "x": 608,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0021_013",
+      "assetId": "OB01",
+      "x": 672,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0031_016",
+    "assetId": "IT01",
+    "x": 992,
+    "y": 512,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [],
+  "items": [
+    {
+      "instanceId": "item_coin_0013_009",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 416,
+      "y": 288,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_gem_0019_009",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 608,
+      "y": 288,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_coin_0025_009",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 800,
+      "y": 288,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [],
+  "waterZones": [],
+  "lavaZones": [],
+  "weather": {
+    "type": "storm",
+    "windX": 0.5,
+    "particleDensity": 0.8
+  }
+}

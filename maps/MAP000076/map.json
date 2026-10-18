@@ -1,0 +1,170 @@
+{
+  "id": "MAP000076",
+  "name": "Lava Mix",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 1024,
+    "height": 576
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 64,
+    "y": 416
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_012",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0001_012",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0002_012",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0003_012",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0004_012",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 384
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0013_013",
+      "assetId": "OB01",
+      "x": 416,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0015_013",
+      "assetId": "OB01",
+      "x": 480,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0017_013",
+      "assetId": "OB01",
+      "x": 544,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0030_010",
+    "assetId": "IT01",
+    "x": 960,
+    "y": 320,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [
+    {
+      "instanceId": "enemy_0018_012",
+      "assetId": "EN01",
+      "x": 576,
+      "y": 384,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 14,
+        "width": 24,
+        "height": 18
+      },
+      "patrol": {
+        "minX": 512,
+        "maxX": 704
+      },
+      "speed": 55
+    }
+  ],
+  "items": [
+    {
+      "instanceId": "item_coin_0014_011",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 448,
+      "y": 352,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_bomb_0016_013",
+      "assetId": "IT04",
+      "kind": "bomb",
+      "x": 512,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_gem_0021_013",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 672,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [],
+  "waterZones": [],
+  "lavaZones": [
+    {
+      "instanceId": "lava_0012_014",
+      "x": 384,
+      "y": 448,
+      "width": 512,
+      "height": 128,
+      "damagePerSecond": 1.0
+    }
+  ],
+  "weather": null
+}

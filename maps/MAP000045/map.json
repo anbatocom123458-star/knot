@@ -1,0 +1,262 @@
+{
+  "id": "MAP000045",
+  "name": "Mixed Gate",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 832,
+    "height": 640
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 128,
+    "y": 512
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_019",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0001_019",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0002_019",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0003_019",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0004_019",
+      "assetId": "Z02",
+      "x": 128,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0005_019",
+      "assetId": "Z02",
+      "x": 160,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0006_019",
+      "assetId": "Z03",
+      "x": 192,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0014_017",
+      "assetId": "Z01",
+      "x": 448,
+      "y": 544
+    },
+    {
+      "instanceId": "tile_0015_017",
+      "assetId": "Z02",
+      "x": 480,
+      "y": 544
+    },
+    {
+      "instanceId": "tile_0016_017",
+      "assetId": "Z03",
+      "x": 512,
+      "y": 544
+    },
+    {
+      "instanceId": "tile_0010_005",
+      "assetId": "Z04",
+      "x": 320,
+      "y": 160
+    },
+    {
+      "instanceId": "tile_0010_006",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0010_007",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 224
+    },
+    {
+      "instanceId": "tile_0010_008",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 256
+    },
+    {
+      "instanceId": "tile_0010_009",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 288
+    },
+    {
+      "instanceId": "tile_0010_010",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0010_011",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 352
+    },
+    {
+      "instanceId": "tile_0010_012",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0010_013",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 416
+    },
+    {
+      "instanceId": "tile_0010_014",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0010_015",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 480
+    },
+    {
+      "instanceId": "tile_0010_016",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0010_017",
+      "assetId": "Z05",
+      "x": 320,
+      "y": 544
+    },
+    {
+      "instanceId": "tile_0010_018",
+      "assetId": "Z06",
+      "x": 320,
+      "y": 576
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0007_018",
+      "assetId": "OB01",
+      "x": 224,
+      "y": 576,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0008_018",
+      "assetId": "OB01",
+      "x": 256,
+      "y": 576,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0011_018",
+      "assetId": "OB01",
+      "x": 352,
+      "y": 576,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0017_005",
+    "assetId": "IT01",
+    "x": 544,
+    "y": 160,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [
+    {
+      "instanceId": "enemy_0012_016",
+      "assetId": "EN01",
+      "x": 384,
+      "y": 512,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 14,
+        "width": 24,
+        "height": 18
+      },
+      "patrol": {
+        "minX": 320,
+        "maxX": 448
+      },
+      "speed": 50
+    }
+  ],
+  "items": [
+    {
+      "instanceId": "item_bomb_0009_016",
+      "assetId": "IT04",
+      "kind": "bomb",
+      "x": 288,
+      "y": 512,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_gem_0015_016",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 480,
+      "y": 512,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [],
+  "waterZones": [],
+  "lavaZones": [],
+  "weather": null
+}

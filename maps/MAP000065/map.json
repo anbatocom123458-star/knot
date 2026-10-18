@@ -1,0 +1,179 @@
+{
+  "id": "MAP000065",
+  "name": "Water Gate",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 960,
+    "height": 704
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 192,
+    "y": 544
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_018",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 576
+    },
+    {
+      "instanceId": "tile_0001_018",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 576
+    },
+    {
+      "instanceId": "tile_0002_018",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 576
+    },
+    {
+      "instanceId": "tile_0003_018",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 576
+    },
+    {
+      "instanceId": "tile_0004_018",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 576
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0005_019",
+      "assetId": "OB01",
+      "x": 160,
+      "y": 608,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0007_019",
+      "assetId": "OB01",
+      "x": 224,
+      "y": 608,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0017_019",
+      "assetId": "OB01",
+      "x": 544,
+      "y": 608,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0019_019",
+      "assetId": "OB01",
+      "x": 608,
+      "y": 608,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0020_005",
+    "assetId": "IT01",
+    "x": 640,
+    "y": 160,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [],
+  "items": [
+    {
+      "instanceId": "item_coin_0012_011",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 384,
+      "y": 352,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_gem_0018_011",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 576,
+      "y": 352,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [
+    {
+      "instanceId": "eq_flying_boots_0006_016",
+      "assetId": "EQP_FLYING_BOOTS",
+      "kind": "flying_boots",
+      "x": 192,
+      "y": 512,
+      "width": 32,
+      "height": 32,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "waterZones": [
+    {
+      "instanceId": "water_0004_010",
+      "x": 128,
+      "y": 320,
+      "width": 192,
+      "height": 384,
+      "moveFactor": 0.4,
+      "gravityFactor": 0.25,
+      "sink": true
+    },
+    {
+      "instanceId": "water_0016_010",
+      "x": 512,
+      "y": 320,
+      "width": 192,
+      "height": 384,
+      "moveFactor": 0.4,
+      "gravityFactor": 0.25,
+      "sink": true
+    }
+  ],
+  "lavaZones": [],
+  "weather": null
+}

@@ -1,0 +1,285 @@
+{
+  "id": "MAP000019",
+  "name": "Chimney Up",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 576,
+    "height": 640
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 128,
+    "y": 512
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_019",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0001_019",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0002_019",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0003_019",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0004_019",
+      "assetId": "Z02",
+      "x": 128,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0005_019",
+      "assetId": "Z03",
+      "x": 160,
+      "y": 608
+    },
+    {
+      "instanceId": "tile_0009_014",
+      "assetId": "Z01",
+      "x": 288,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0010_014",
+      "assetId": "Z02",
+      "x": 320,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0011_014",
+      "assetId": "Z02",
+      "x": 352,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0012_014",
+      "assetId": "Z03",
+      "x": 384,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0006_005",
+      "assetId": "Z04",
+      "x": 192,
+      "y": 160
+    },
+    {
+      "instanceId": "tile_0006_006",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0006_007",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 224
+    },
+    {
+      "instanceId": "tile_0006_008",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 256
+    },
+    {
+      "instanceId": "tile_0006_009",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 288
+    },
+    {
+      "instanceId": "tile_0006_010",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0006_011",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 352
+    },
+    {
+      "instanceId": "tile_0006_012",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0006_013",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 416
+    },
+    {
+      "instanceId": "tile_0006_014",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 448
+    },
+    {
+      "instanceId": "tile_0006_015",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 480
+    },
+    {
+      "instanceId": "tile_0006_016",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0006_017",
+      "assetId": "Z05",
+      "x": 192,
+      "y": 544
+    },
+    {
+      "instanceId": "tile_0006_018",
+      "assetId": "Z06",
+      "x": 192,
+      "y": 576
+    },
+    {
+      "instanceId": "tile_0012_005",
+      "assetId": "Z04",
+      "x": 384,
+      "y": 160
+    },
+    {
+      "instanceId": "tile_0012_006",
+      "assetId": "Z05",
+      "x": 384,
+      "y": 192
+    },
+    {
+      "instanceId": "tile_0012_007",
+      "assetId": "Z05",
+      "x": 384,
+      "y": 224
+    },
+    {
+      "instanceId": "tile_0012_008",
+      "assetId": "Z05",
+      "x": 384,
+      "y": 256
+    },
+    {
+      "instanceId": "tile_0012_009",
+      "assetId": "Z05",
+      "x": 384,
+      "y": 288
+    },
+    {
+      "instanceId": "tile_0012_010",
+      "assetId": "Z05",
+      "x": 384,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0012_011",
+      "assetId": "Z05",
+      "x": 384,
+      "y": 352
+    },
+    {
+      "instanceId": "tile_0012_012",
+      "assetId": "Z05",
+      "x": 384,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0012_013",
+      "assetId": "Z05",
+      "x": 384,
+      "y": 416
+    },
+    {
+      "instanceId": "tile_0012_015",
+      "assetId": "Z05",
+      "x": 384,
+      "y": 480
+    },
+    {
+      "instanceId": "tile_0012_016",
+      "assetId": "Z05",
+      "x": 384,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0012_017",
+      "assetId": "Z05",
+      "x": 384,
+      "y": 544
+    },
+    {
+      "instanceId": "tile_0012_018",
+      "assetId": "Z06",
+      "x": 384,
+      "y": 576
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0009_017",
+      "assetId": "OB01",
+      "x": 288,
+      "y": 544,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0011_004",
+    "assetId": "IT01",
+    "x": 352,
+    "y": 128,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [],
+  "items": [
+    {
+      "instanceId": "item_gem_0009_011",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 288,
+      "y": 352,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [],
+  "waterZones": [],
+  "lavaZones": [],
+  "weather": null
+}

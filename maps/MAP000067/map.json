@@ -1,0 +1,298 @@
+{
+  "id": "MAP000067",
+  "name": "Water Current",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 1088,
+    "height": 576
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 64,
+    "y": 416
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_010",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0001_010",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0002_010",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0003_010",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0004_010",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 320
+    },
+    {
+      "instanceId": "tile_0000_016",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0001_016",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0002_016",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0003_016",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0004_016",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0022_016",
+      "assetId": "Z01",
+      "x": 704,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0023_016",
+      "assetId": "Z02",
+      "x": 736,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0024_016",
+      "assetId": "Z02",
+      "x": 768,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0025_016",
+      "assetId": "Z02",
+      "x": 800,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0026_016",
+      "assetId": "Z02",
+      "x": 832,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0027_016",
+      "assetId": "Z02",
+      "x": 864,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0028_016",
+      "assetId": "Z02",
+      "x": 896,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0029_016",
+      "assetId": "Z02",
+      "x": 928,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0030_016",
+      "assetId": "Z02",
+      "x": 960,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0031_016",
+      "assetId": "Z02",
+      "x": 992,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0032_016",
+      "assetId": "Z02",
+      "x": 1024,
+      "y": 512
+    },
+    {
+      "instanceId": "tile_0033_016",
+      "assetId": "Z03",
+      "x": 1056,
+      "y": 512
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0011_013",
+      "assetId": "OB01",
+      "x": 352,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0013_013",
+      "assetId": "OB01",
+      "x": 416,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0015_013",
+      "assetId": "OB01",
+      "x": 480,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0017_013",
+      "assetId": "OB01",
+      "x": 544,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0019_013",
+      "assetId": "OB01",
+      "x": 608,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0032_015",
+    "assetId": "IT01",
+    "x": 1024,
+    "y": 480,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [
+    {
+      "instanceId": "enemy_0020_012",
+      "assetId": "EN01",
+      "x": 640,
+      "y": 384,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 14,
+        "width": 24,
+        "height": 18
+      },
+      "patrol": {
+        "minX": 448,
+        "maxX": 704
+      },
+      "speed": 50
+    }
+  ],
+  "items": [
+    {
+      "instanceId": "item_coin_0012_011",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 384,
+      "y": 352,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_coin_0016_011",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 512,
+      "y": 352,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_gem_0018_011",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 576,
+      "y": 352,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [],
+  "waterZones": [
+    {
+      "instanceId": "water_0010_010",
+      "x": 320,
+      "y": 320,
+      "width": 384,
+      "height": 256,
+      "moveFactor": 0.4,
+      "gravityFactor": 0.25,
+      "sink": true
+    }
+  ],
+  "lavaZones": [],
+  "weather": null
+}

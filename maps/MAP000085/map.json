@@ -1,0 +1,122 @@
+{
+  "id": "MAP000085",
+  "name": "Storm One",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": {
+    "width": 1024,
+    "height": 576
+  },
+  "backgroundAssetId": "BG01",
+  "spawn": {
+    "x": 64,
+    "y": 416
+  },
+  "blocks": [
+    {
+      "instanceId": "tile_0000_012",
+      "assetId": "Z01",
+      "x": 0,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0001_012",
+      "assetId": "Z02",
+      "x": 32,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0002_012",
+      "assetId": "Z02",
+      "x": 64,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0003_012",
+      "assetId": "Z02",
+      "x": 96,
+      "y": 384
+    },
+    {
+      "instanceId": "tile_0004_012",
+      "assetId": "Z03",
+      "x": 128,
+      "y": 384
+    }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_0008_013",
+      "assetId": "OB01",
+      "x": 256,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    },
+    {
+      "instanceId": "spike_0010_013",
+      "assetId": "OB01",
+      "x": 320,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 12,
+        "width": 24,
+        "height": 18
+      }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_0030_012",
+    "assetId": "IT01",
+    "x": 960,
+    "y": 384,
+    "hitbox": {
+      "offsetX": 4,
+      "offsetY": 4,
+      "width": 24,
+      "height": 28
+    }
+  },
+  "enemies": [],
+  "items": [
+    {
+      "instanceId": "item_coin_0009_013",
+      "assetId": "IT02",
+      "kind": "coin",
+      "x": 288,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    },
+    {
+      "instanceId": "item_gem_0016_013",
+      "assetId": "IT03",
+      "kind": "gem",
+      "x": 512,
+      "y": 416,
+      "hitbox": {
+        "offsetX": 4,
+        "offsetY": 4,
+        "width": 24,
+        "height": 24
+      }
+    }
+  ],
+  "equipment": [],
+  "waterZones": [],
+  "lavaZones": [],
+  "weather": {
+    "type": "storm",
+    "windX": 0.4,
+    "particleDensity": 0.7
+  }
+}

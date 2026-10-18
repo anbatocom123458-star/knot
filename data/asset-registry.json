@@ -34,6 +34,25 @@
       "notes": "Demo draws this source image with nearest-neighbor scaling and horizontal tiling."
     },
     {
+      "id": "BG02",
+      "category": "background",
+      "name": "Solid sky background",
+      "source": "New Platformer Pack",
+      "sourceFile": "new-platformer-pack/Sprites/Backgrounds/Default/background_solid_sky.png",
+      "path": "assets/source/kenney/new-platformer-pack/Sprites/Backgrounds/Default/background_solid_sky.png",
+      "format": "PNG",
+      "width": 256,
+      "height": 256,
+      "frameWidth": 256,
+      "frameHeight": 256,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "CC0",
+      "status": "verified",
+      "notes": "Màu nền trời chéo sau BG01, tạo lớp nền tối thiểu cho pixel-art."
+    },
+    {
       "id": "Z01",
       "category": "tile",
       "name": "Grass horizontal left",
@@ -47,7 +66,13 @@
       "frameHeight": 64,
       "frameCount": 1,
       "animationType": "static",
-      "collision": { "type": "solid", "demoSize": { "width": 32, "height": 32 } },
+      "collision": {
+        "type": "solid",
+        "demoSize": {
+          "width": 32,
+          "height": 32
+        }
+      },
       "license": "CC0",
       "status": "verified",
       "notes": "Source remains 64x64; demo renders at the 32x32 design grid."
@@ -66,7 +91,13 @@
       "frameHeight": 64,
       "frameCount": 1,
       "animationType": "static",
-      "collision": { "type": "solid", "demoSize": { "width": 32, "height": 32 } },
+      "collision": {
+        "type": "solid",
+        "demoSize": {
+          "width": 32,
+          "height": 32
+        }
+      },
       "license": "CC0",
       "status": "verified",
       "notes": "Source remains 64x64; demo renders at the 32x32 design grid."
@@ -85,7 +116,13 @@
       "frameHeight": 64,
       "frameCount": 1,
       "animationType": "static",
-      "collision": { "type": "solid", "demoSize": { "width": 32, "height": 32 } },
+      "collision": {
+        "type": "solid",
+        "demoSize": {
+          "width": 32,
+          "height": 32
+        }
+      },
       "license": "CC0",
       "status": "verified",
       "notes": "Source remains 64x64; demo renders at the 32x32 design grid."
@@ -117,7 +154,9 @@
       "source": "New Platformer Pack",
       "sourceFile": "new-platformer-pack/Sprites/Characters/Default/character_beige_idle.png",
       "path": "assets/source/kenney/new-platformer-pack/Sprites/Characters/Default/character_beige_idle.png",
-      "frameFiles": ["assets/source/kenney/new-platformer-pack/Sprites/Characters/Default/character_beige_idle.png"],
+      "frameFiles": [
+        "assets/source/kenney/new-platformer-pack/Sprites/Characters/Default/character_beige_idle.png"
+      ],
       "format": "PNG",
       "width": 128,
       "height": 128,
@@ -162,7 +201,9 @@
       "source": "New Platformer Pack",
       "sourceFile": "new-platformer-pack/Sprites/Characters/Default/character_beige_jump.png",
       "path": "assets/source/kenney/new-platformer-pack/Sprites/Characters/Default/character_beige_jump.png",
-      "frameFiles": ["assets/source/kenney/new-platformer-pack/Sprites/Characters/Default/character_beige_jump.png"],
+      "frameFiles": [
+        "assets/source/kenney/new-platformer-pack/Sprites/Characters/Default/character_beige_jump.png"
+      ],
       "format": "PNG",
       "width": 128,
       "height": 128,
@@ -273,7 +314,13 @@
       "frameHeight": 64,
       "frameCount": 1,
       "animationType": "static",
-      "collision": { "type": "solid", "demoSize": { "width": 32, "height": 32 } },
+      "collision": {
+        "type": "solid",
+        "demoSize": {
+          "width": 32,
+          "height": 32
+        }
+      },
       "license": "CC0",
       "status": "verified",
       "notes": "Top cap of a hand-designed vertical wall column; rendered at the 32x32 design grid like Z01-Z03."
@@ -292,7 +339,13 @@
       "frameHeight": 64,
       "frameCount": 1,
       "animationType": "static",
-      "collision": { "type": "solid", "demoSize": { "width": 32, "height": 32 } },
+      "collision": {
+        "type": "solid",
+        "demoSize": {
+          "width": 32,
+          "height": 32
+        }
+      },
       "license": "CC0",
       "status": "verified",
       "notes": "Middle segment of a hand-designed vertical wall column; rendered at the 32x32 design grid."
@@ -311,7 +364,13 @@
       "frameHeight": 64,
       "frameCount": 1,
       "animationType": "static",
-      "collision": { "type": "solid", "demoSize": { "width": 32, "height": 32 } },
+      "collision": {
+        "type": "solid",
+        "demoSize": {
+          "width": 32,
+          "height": 32
+        }
+      },
       "license": "CC0",
       "status": "verified",
       "notes": "Bottom segment of a hand-designed vertical wall column; rendered at the 32x32 design grid."
@@ -448,6 +507,278 @@
       "license": "CC0",
       "status": "verified",
       "notes": "Rendered for a thrown bomb while its fuse runs down; the explosion visual reuses FX01."
+    },
+    {
+      "id": "AUD_JUMP",
+      "category": "audio",
+      "name": "Nhảy",
+      "source": "New Platformer Pack",
+      "sourceFile": "new-platformer-pack/Sounds/sfx_jump.ogg",
+      "path": "assets/source/kenney/new-platformer-pack/Sounds/sfx_jump.ogg",
+      "format": "OGG",
+      "frameWidth": null,
+      "frameHeight": null,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "CC0",
+      "status": "verified",
+      "notes": "Âm thanh hiệu ứng (SFX) từ Kenney New Platformer Pack. License CC0 xác minh từ License.txt cục bộ."
+    },
+    {
+      "id": "AUD_JUMP_HIGH",
+      "category": "audio",
+      "name": "Nhảy cao",
+      "source": "New Platformer Pack",
+      "sourceFile": "new-platformer-pack/Sounds/sfx_jump-high.ogg",
+      "path": "assets/source/kenney/new-platformer-pack/Sounds/sfx_jump-high.ogg",
+      "format": "OGG",
+      "frameWidth": null,
+      "frameHeight": null,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "CC0",
+      "status": "verified",
+      "notes": "Âm thanh hiệu ứng (SFX) từ Kenney New Platformer Pack. License CC0 xác minh từ License.txt cục bộ."
+    },
+    {
+      "id": "AUD_COIN",
+      "category": "audio",
+      "name": "Nhặt đồng xu",
+      "source": "New Platformer Pack",
+      "sourceFile": "new-platformer-pack/Sounds/sfx_coin.ogg",
+      "path": "assets/source/kenney/new-platformer-pack/Sounds/sfx_coin.ogg",
+      "format": "OGG",
+      "frameWidth": null,
+      "frameHeight": null,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "CC0",
+      "status": "verified",
+      "notes": "Âm thanh hiệu ứng (SFX) từ Kenney New Platformer Pack. License CC0 xác minh từ License.txt cục bộ."
+    },
+    {
+      "id": "AUD_GEM",
+      "category": "audio",
+      "name": "Nhặt ngọc",
+      "source": "New Platformer Pack",
+      "sourceFile": "new-platformer-pack/Sounds/sfx_gem.ogg",
+      "path": "assets/source/kenney/new-platformer-pack/Sounds/sfx_gem.ogg",
+      "format": "OGG",
+      "frameWidth": null,
+      "frameHeight": null,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "CC0",
+      "status": "verified",
+      "notes": "Âm thanh hiệu ứng (SFX) từ Kenney New Platformer Pack. License CC0 xác minh từ License.txt cục bộ."
+    },
+    {
+      "id": "AUD_THROW",
+      "category": "audio",
+      "name": "Ném bom",
+      "source": "New Platformer Pack",
+      "sourceFile": "new-platformer-pack/Sounds/sfx_throw.ogg",
+      "path": "assets/source/kenney/new-platformer-pack/Sounds/sfx_throw.ogg",
+      "format": "OGG",
+      "frameWidth": null,
+      "frameHeight": null,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "CC0",
+      "status": "verified",
+      "notes": "Âm thanh hiệu ứng (SFX) từ Kenney New Platformer Pack. License CC0 xác minh từ License.txt cục bộ."
+    },
+    {
+      "id": "AUD_DISAPPEAR",
+      "category": "audio",
+      "name": "Quái bị tiêu diệt",
+      "source": "New Platformer Pack",
+      "sourceFile": "new-platformer-pack/Sounds/sfx_disappear.ogg",
+      "path": "assets/source/kenney/new-platformer-pack/Sounds/sfx_disappear.ogg",
+      "format": "OGG",
+      "frameWidth": null,
+      "frameHeight": null,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "CC0",
+      "status": "verified",
+      "notes": "Âm thanh hiệu ứng (SFX) từ Kenney New Platformer Pack. License CC0 xác minh từ License.txt cục bộ."
+    },
+    {
+      "id": "AUD_HURT",
+      "category": "audio",
+      "name": "Nhân vật bị trúng",
+      "source": "New Platformer Pack",
+      "sourceFile": "new-platformer-pack/Sounds/sfx_hurt.ogg",
+      "path": "assets/source/kenney/new-platformer-pack/Sounds/sfx_hurt.ogg",
+      "format": "OGG",
+      "frameWidth": null,
+      "frameHeight": null,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "CC0",
+      "status": "verified",
+      "notes": "Âm thanh hiệu ứng (SFX) từ Kenney New Platformer Pack. License CC0 xác minh từ License.txt cục bộ."
+    },
+    {
+      "id": "AUD_MAGIC",
+      "category": "audio",
+      "name": "Chiến thắng",
+      "source": "New Platformer Pack",
+      "sourceFile": "new-platformer-pack/Sounds/sfx_magic.ogg",
+      "path": "assets/source/kenney/new-platformer-pack/Sounds/sfx_magic.ogg",
+      "format": "OGG",
+      "frameWidth": null,
+      "frameHeight": null,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "CC0",
+      "status": "verified",
+      "notes": "Âm thanh hiệu ứng (SFX) từ Kenney New Platformer Pack. License CC0 xác minh từ License.txt cục bộ."
+    },
+    {
+      "id": "AUD_SELECT",
+      "category": "audio",
+      "name": "Chọn menu",
+      "source": "New Platformer Pack",
+      "sourceFile": "new-platformer-pack/Sounds/sfx_select.ogg",
+      "path": "assets/source/kenney/new-platformer-pack/Sounds/sfx_select.ogg",
+      "format": "OGG",
+      "frameWidth": null,
+      "frameHeight": null,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "CC0",
+      "status": "verified",
+      "notes": "Âm thanh hiệu ứng (SFX) từ Kenney New Platformer Pack. License CC0 xác minh từ License.txt cục bộ."
+    },
+    {
+      "id": "AUD_BUMP",
+      "category": "audio",
+      "name": "Va chạm",
+      "source": "New Platformer Pack",
+      "sourceFile": "new-platformer-pack/Sounds/sfx_bump.ogg",
+      "path": "assets/source/kenney/new-platformer-pack/Sounds/sfx_bump.ogg",
+      "format": "OGG",
+      "frameWidth": null,
+      "frameHeight": null,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "CC0",
+      "status": "verified",
+      "notes": "Âm thanh hiệu ứng (SFX) từ Kenney New Platformer Pack. License CC0 xác minh từ License.txt cục bộ."
+    },
+    {
+      "id": "EQP_SHIELD",
+      "category": "equipment",
+      "name": "Khiên chặn 1 lần sát thương",
+      "source": "Pending (asset gap)",
+      "sourceFile": "equipment/placeholder.png",
+      "path": "assets/source/kenney/equipment/placeholder.png",
+      "format": "PNG",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "pending",
+      "status": "pending",
+      "notes": "Asset chua co file thuc. Game su dung fallback mau. Nguoi van hanh phai tai tu nguyen ken chinh thuc va cap nhat registry (xem ASSET_GAP.md)."
+    },
+    {
+      "id": "EQP_MAGNET",
+      "category": "equipment",
+      "name": "Nam châm hút đồng xu",
+      "source": "Pending (asset gap)",
+      "sourceFile": "equipment/placeholder.png",
+      "path": "assets/source/kenney/equipment/placeholder.png",
+      "format": "PNG",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "pending",
+      "status": "pending",
+      "notes": "Asset chua co file thuc. Game su dung fallback mau. Nguoi van hanh phai tai tu nguyen ken chinh thuc va cap nhat registry (xem ASSET_GAP.md)."
+    },
+    {
+      "id": "EQP_HIGH_JUMP_BOOTS",
+      "category": "equipment",
+      "name": "Giày nhảy cao",
+      "source": "Pending (asset gap)",
+      "sourceFile": "equipment/placeholder.png",
+      "path": "assets/source/kenney/equipment/placeholder.png",
+      "format": "PNG",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "pending",
+      "status": "pending",
+      "notes": "Asset chua co file thuc. Game su dung fallback mau. Nguoi van hanh phai tai tu nguyen ken chinh thuc va cap nhat registry (xem ASSET_GAP.md)."
+    },
+    {
+      "id": "EQP_FLYING_BOOTS",
+      "category": "equipment",
+      "name": "Giày bay/lơ lửng",
+      "source": "Pending (asset gap)",
+      "sourceFile": "equipment/placeholder.png",
+      "path": "assets/source/kenney/equipment/placeholder.png",
+      "format": "PNG",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "pending",
+      "status": "pending",
+      "notes": "Asset chua co file thuc. Game su dung fallback mau. Nguoi van hanh phai tai tu nguyen ken chinh thuc va cap nhat registry (xem ASSET_GAP.md)."
+    },
+    {
+      "id": "EQP_HEALING",
+      "category": "equipment",
+      "name": "Tim hồi phục máu",
+      "source": "Pending (asset gap)",
+      "sourceFile": "equipment/placeholder.png",
+      "path": "assets/source/kenney/equipment/placeholder.png",
+      "format": "PNG",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "pending",
+      "status": "pending",
+      "notes": "Asset chua co file thuc. Game su dung fallback mau. Nguoi van hanh phai tai tu nguyen ken chinh thuc va cap nhat registry (xem ASSET_GAP.md)."
+    },
+    {
+      "id": "EQP_BOMB",
+      "category": "equipment",
+      "name": "Bom ném",
+      "source": "Pending (asset gap)",
+      "sourceFile": "equipment/placeholder.png",
+      "path": "assets/source/kenney/equipment/placeholder.png",
+      "format": "PNG",
+      "frameWidth": 32,
+      "frameHeight": 32,
+      "frameCount": 1,
+      "animationType": "static",
+      "collision": null,
+      "license": "pending",
+      "status": "pending",
+      "notes": "Asset chua co file thuc. Game su dung fallback mau. Nguoi van hanh phai tai tu nguyen ken chinh thuc va cap nhat registry (xem ASSET_GAP.md)."
     }
   ]
 }
