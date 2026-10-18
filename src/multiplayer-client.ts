@@ -22,6 +22,7 @@ export class MultiplayerClient {
   private onStateChange: ((players: RemotePlayer[]) => void) | null = null;
   private onJoined: ((roomId: string, clientId: string) => void) | null = null;
   private onMapChange: ((mapId: string) => void) | null = null;
+  private onGameStart: ((mapId: string) => void) | null = null;
   private onError: ((message: string) => void) | null = null;
 
   constructor(username = "Người chơi") {
@@ -143,6 +144,11 @@ export class MultiplayerClient {
         this.onError?.(p.message || p.code || "Lỗi multiplayer không xác định.");
         break;
       }
+      case "game_started": {
+        const p = (msg.payload as any) ?? {};
+        if (typeof p.mapId === "string") this.onGameStart?.(p.mapId);
+        break;
+      }
       case "map_changed": {
         const p = (msg.payload as any) ?? {};
         if (typeof p.mapId === "string") this.onMapChange?.(p.mapId);
@@ -176,6 +182,12 @@ export class MultiplayerClient {
     }
   }
 
+  sendStartGame(mapId: string): void {
+    if (this.ws?.readyState === WebSocket.OPEN) {
+      this.ws.send(JSON.stringify({ type: "start_game", payload: { mapId } }));
+    }
+  }
+
   getPlayers(): RemotePlayer[] {
     return [...this.remotePlayers.values()];
   }
@@ -202,6 +214,10 @@ export class MultiplayerClient {
 
   onMapChanged(callback: (mapId: string) => void): void {
     this.onMapChange = callback;
+  }
+
+  onGameStarted(callback: (mapId: string) => void): void {
+    this.onGameStart = callback;
   }
 
   disconnect(): void {

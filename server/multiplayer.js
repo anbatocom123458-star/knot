@@ -7,7 +7,7 @@ import { WebSocketServer, WebSocket } from "ws";
 import crypto from "node:crypto";
 
 const MAX_PLAYERS_PER_ROOM = 4;
-const MSG_RATE_LIMIT = 30;
+const MSG_RATE_LIMIT = 60;
 const MSG_RATE_WINDOW_MS = 1000;
 const MAX_PAYLOAD_BYTES = 1024;
 const HEARTBEAT_INTERVAL_MS = 30000;
@@ -67,7 +67,7 @@ class Room {
     this.players = new Map();
     this.sockets = new Map();
     this.owner = null;
-    this.status = "playing";
+    this.status = "waiting";
     this.addPlayer(ownerSocket, username, displayName, true);
   }
 
@@ -138,6 +138,38 @@ class Room {
       ps.input = { left: false, right: false, jump: false, bomb: false };
     }
     this.broadcast("map_changed", { mapId, revision: this.mapRevision });
+  }
+
+  startGame(hostClientId, mapId) {
+    if (hostClientId !== this.owner) {
+      return { ok: false, code: "not_host" };
+    }
+    if (this.status === "starting" || this.status === "playing") {
+      return { ok: false, code: "already_started" };
+    }
+    if (typeof mapId !== "string" || !/^[A-Z0-9]{3,12}$/.test(mapId)) {
+      return { ok: false, code: "invalid_map" };
+    }
+    const p = path.join(ROOT_DIR, "maps", mapId, "map.json");
+    if (!fs.existsSync(p)) {
+      return { ok: false, code: "map_not_found" };
+    }
+    this.status = "starting";
+    this.mapId = mapId;
+    this.mapRevision += 1;
+    for (const ps of this.players.values()) {
+      ps.status = "playing";
+      ps.finishedAt = null;
+      ps.x = 64;
+      ps.y = 416;
+      ps.vx = 0;
+      ps.vy = 0;
+      ps.grounded = false;
+      ps.input = { left: false, right: false, jump: false, bomb: false };
+    }
+    this.status = "playing";
+    this.broadcast("game_started", { mapId, revision: this.mapRevision });
+    return { ok: true, mapId };
   }
 
   allFinished() {
@@ -380,6 +412,19 @@ function handleClientMessage(ws, msg, auth) {
       player.finishedAt = nowMs();
       room.broadcast("player_state", { id: player.id, status: "finished" });
       break;
+    }
+    case "start_game": {
+      if (info.clientId !== room.owner) {
+        ws.send(JSON.stringify({ type: "error", payload: { code: "not_host" } }));
+        return;
+      }
+      const startMapId = msg.payload?.mapId ?? room.mapId;
+      const res = room.startGame(info.clientId, startMapId);
+      if (!res.ok) {
+        ws.send(JSON.stringify({ type: "error", payload: { code: res.code || "start_failed" } }));
+        return;
+      }
+      return;
     }
     case "set_map": {
       if (info.clientId !== room.owner) {

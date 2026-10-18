@@ -95,26 +95,27 @@ export function applyLavaDamage(
 export function drawEnvironment(
   context: CanvasRenderingContext2D,
   cameraX: number,
+  cameraY: number,
   waterZones: MapWaterZone[],
   lavaZones: MapLavaZone[]
 ): void {
   for (const zone of waterZones) {
     context.save();
     context.fillStyle = "rgba(60, 140, 200, 0.35)";
-    context.fillRect(zone.x - cameraX, zone.y, zone.width, zone.height);
+    context.fillRect(zone.x - cameraX, zone.y - cameraY, zone.width, zone.height);
     context.strokeStyle = "rgba(80, 160, 220, 0.7)";
     context.lineWidth = 2;
-    context.strokeRect(zone.x - cameraX, zone.y, zone.width, zone.height);
+    context.strokeRect(zone.x - cameraX, zone.y - cameraY, zone.width, zone.height);
     context.restore();
   }
   for (const zone of lavaZones) {
     context.save();
     const pulse = 0.5 + 0.5 * Math.sin(Date.now() / 200);
     context.fillStyle = `rgba(220, 60, 0, ${0.5 + 0.2 * pulse})`;
-    context.fillRect(zone.x - cameraX, zone.y, zone.width, zone.height);
+    context.fillRect(zone.x - cameraX, zone.y - cameraY, zone.width, zone.height);
     context.strokeStyle = `rgba(255, 100, 0, ${0.7 + 0.2 * pulse})`;
     context.lineWidth = 2;
-    context.strokeRect(zone.x - cameraX, zone.y, zone.width, zone.height);
+    context.strokeRect(zone.x - cameraX, zone.y - cameraY, zone.width, zone.height);
     context.restore();
   }
 }

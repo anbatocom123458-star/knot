@@ -10,10 +10,11 @@ import { createAuthStore } from "./auth.js";
 import { setupWss } from "./multiplayer.js";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const PORT = Number(process.env.PORT ?? 3001);
+const PORT = Number(process.env.PORT ?? 25036);
 const HOST = process.env.HOST ?? "0.0.0.0";
 const SESSION_COOKIE_NAME = process.env.SESSION_COOKIE_NAME ?? "knot_session";
 const ADMIN_SECRET = process.env.KNOT_ADMIN_SECRET; // optional, not embedded
+const SESSION_TTL_MS = 7 * 24 * 60 * 60 * 1000;
 
 // In-memory user store (no database required at this stage).
 const users = new Map();
@@ -177,11 +178,25 @@ server.on("upgrade", (request, socket, head) => {
   });
 });
 
+server.on("error", (error) => {
+  console.error("KNOT server failed to start:", error && error.message ? error.message : error);
+  process.exit(1);
+});
+
 server.listen(PORT, HOST, () => {
   console.log(`KNOT server listening on http://${HOST}:${PORT}`);
   console.log(`WebSocket multiplayer enabled on ws://${HOST}:${PORT}`);
   if (ADMIN_SECRET) console.log("Admin secret configured.");
   else console.log("Warning: KNOT_ADMIN_SECRET not set (admin endpoints disabled).");
 });
+
+function shutdown(signal) {
+  console.log(`KNOT server shutting down (${signal})...`);
+  try { wss.close(); } catch { /* ignore */ }
+  server.close(() => process.exit(0));
+  setTimeout(() => process.exit(1), 10000).unref();
+}
+process.on("SIGTERM", () => shutdown("SIGTERM"));
+process.on("SIGINT", () => shutdown("SIGINT"));
 
 export default server;

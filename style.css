@@ -140,7 +140,7 @@ canvas {
   user-select: none;
   -webkit-tap-highlight-color: transparent;
   pointer-events: none;
-  z-index: 5;
+  z-index: 10;
 }
 .controls > * {
   pointer-events: auto;
@@ -422,7 +422,7 @@ body.menu-open .controls { display: none; }
   .game-status, .map-stamp { top: 8px; min-height: 25px; padding: 0 7px; font-size: 9px; }
   .game-status { left: 8px; }
   .map-stamp { right: 8px; }
-  .controls { min-height: 68px; margin-top: 10px; }
+  .controls { min-height: 68px; }
   .direction { width: 50px; height: 46px; }
   .keyboard-hint { display: none; }
   .footer { padding-top: 12px; }

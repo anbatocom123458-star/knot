@@ -181,6 +181,7 @@ export function magnetPull(
 export function drawEquipments(
   context: CanvasRenderingContext2D,
   cameraX: number,
+  cameraY: number,
   equipments: EquipmentState[]
 ): void {
   const colorByKind: Record<EquipmentKind, string> = {
@@ -196,10 +197,10 @@ export function drawEquipments(
     context.save();
     context.fillStyle = colorByKind[eq.kind];
     context.globalAlpha = 0.85;
-    context.fillRect(eq.x - cameraX, eq.y, eq.width, eq.height);
+    context.fillRect(eq.x - cameraX, eq.y - cameraY, eq.width, eq.height);
     context.strokeStyle = "#203b36";
     context.lineWidth = 2;
-    context.strokeRect(eq.x - cameraX, eq.y, eq.width, eq.height);
+    context.strokeRect(eq.x - cameraX, eq.y - cameraY, eq.width, eq.height);
     context.restore();
   }
 }

@@ -33,6 +33,7 @@ export type UIAction =
   | "settings"
   | "account"
   | "auth-login"
+  | "auth-show-login"
   | "auth-register"
   | "auth-register-submit"
   | "auth-logout"

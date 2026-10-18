@@ -94,7 +94,7 @@ export function updateWeather(
 export function drawWeather(
   context: CanvasRenderingContext2D,
   weather: WeatherState,
-  cameraX: number,
+  _cameraX: number,
   viewWidth: number,
   viewHeight: number
 ): void {
@@ -115,13 +115,13 @@ export function drawWeather(
       context.strokeStyle = "rgba(140, 180, 220, 0.6)";
       context.lineWidth = isStorm ? 2 : 1;
       context.beginPath();
-      context.moveTo(p.x - cameraX, p.y);
-      context.lineTo(p.x - cameraX - p.vx * 0.15, p.y + p.vy * 0.25);
+      context.moveTo(p.x, p.y);
+      context.lineTo(p.x - p.vx * 0.15, p.y + p.vy * 0.25);
       context.stroke();
     } else if (weather.type === "wind") {
       // Gió: hạt trắng nhỏ, di chuyển ngang nhanh.
       context.fillStyle = "rgba(240, 240, 240, 0.35)";
-      context.fillRect(p.x - cameraX, p.y, 2, 6);
+      context.fillRect(p.x, p.y, 2, 6);
     }
 
     if (isStorm && Math.random() < 0.02) {

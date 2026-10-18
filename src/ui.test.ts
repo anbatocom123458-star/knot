@@ -43,6 +43,7 @@ function freshActions(): UICallbacks {
     settings: vi.fn(),
     account: vi.fn(),
     "auth-login": vi.fn(),
+    "auth-show-login": vi.fn(),
     "auth-register": vi.fn(),
     "auth-register-submit": vi.fn(),
     "auth-logout": vi.fn(),

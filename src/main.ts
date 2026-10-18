@@ -109,6 +109,7 @@ let assets = new Map<string, HTMLImageElement>();
 /** Solid tile rects; blocks never change at runtime, built once after load. */
 let solids: Rect[] = [];
 let cameraX = 0;
+let cameraY = 0;
 let previousTime = 0;
 let gameTime = 0;
 let won = false;
@@ -407,7 +408,10 @@ function startMultiplayer(roomId: string | null, create: boolean): void {
     refreshMultiplayerLobby();
   });
   mpClient.onMapChanged((mapId) => {
-    if (mapId && mapId !== currentMapId) void startMapRun(mapId);
+    if (mapId) void startMapRun(mapId);
+  });
+  mpClient.onGameStarted((mapId) => {
+    if (mapId) void startMapRun(mapId);
   });
   mpClient.onErrorMessage((message) => {
     statusLabel.textContent = message;
@@ -917,20 +921,20 @@ function drawBackground() {
 
 function drawMap() {
   for (const block of mapData.blocks) {
-    context.drawImage(imageFor(block.assetId), Math.round(block.x - cameraX), block.y, tileSize, tileSize);
+    context.drawImage(imageFor(block.assetId), Math.round(block.x - cameraX), Math.round(block.y - cameraY), tileSize, tileSize);
     // Viền viền nhẹ cho platform tạo cảm giác pixel-art chắc chắn.
     context.save();
     context.strokeStyle = "rgba(32 59 54 / 40%)";
     context.lineWidth = 2;
-    context.strokeRect(Math.round(block.x - cameraX), block.y, tileSize, tileSize);
+    context.strokeRect(Math.round(block.x - cameraX), Math.round(block.y - cameraY), tileSize, tileSize);
     context.restore();
   }
 
   for (const hazard of mapData.hazards) {
-    context.drawImage(imageFor(hazard.assetId), Math.round(hazard.x - cameraX), hazard.y, tileSize, tileSize);
+    context.drawImage(imageFor(hazard.assetId), Math.round(hazard.x - cameraX), Math.round(hazard.y - cameraY), tileSize, tileSize);
   }
 
-  context.drawImage(imageFor(mapData.exit.assetId), Math.round(mapData.exit.x - cameraX), mapData.exit.y, tileSize, tileSize);
+  context.drawImage(imageFor(mapData.exit.assetId), Math.round(mapData.exit.x - cameraX), Math.round(mapData.exit.y - cameraY), tileSize, tileSize);
 }
 
 function drawItems() {
@@ -940,7 +944,7 @@ function drawItems() {
     context.drawImage(
       imageFor(item.assetId),
       Math.round(item.x - cameraX),
-      Math.round(item.y + bob),
+      Math.round(item.y + bob - cameraY),
       item.width,
       item.height
     );
@@ -954,7 +958,7 @@ function drawEnemies() {
       if (enemy.deathElapsed >= ENEMY_DEATH_DURATION) continue;
       context.save();
       context.globalAlpha = Math.max(0, 1 - enemy.deathElapsed / ENEMY_DEATH_DURATION);
-      context.drawImage(imageFor("EN03"), drawX, enemy.y, enemy.width, enemy.height);
+      context.drawImage(imageFor("EN03"), drawX, Math.round(enemy.y - cameraY), enemy.width, enemy.height);
       context.restore();
       continue;
     }
@@ -964,10 +968,10 @@ function drawEnemies() {
       context.save();
       context.translate(drawX + enemy.width, 0);
       context.scale(-1, 1);
-      context.drawImage(image, 0, enemy.y, enemy.width, enemy.height);
+      context.drawImage(image, 0, Math.round(enemy.y - cameraY), enemy.width, enemy.height);
       context.restore();
     } else {
-      context.drawImage(image, drawX, enemy.y, enemy.width, enemy.height);
+      context.drawImage(image, drawX, Math.round(enemy.y - cameraY), enemy.width, enemy.height);
     }
   }
 }
@@ -977,7 +981,7 @@ function drawBombs() {
     context.drawImage(
       imageFor("IT05"),
       Math.round(bomb.x - cameraX),
-      Math.round(bomb.y),
+      Math.round(bomb.y - cameraY),
       bomb.width,
       bomb.height
     );
@@ -998,7 +1002,7 @@ function drawPlayer() {
   const image = currentCharacterFrame();
   if (!image) throw new Error("Khong ve duoc nhan vat: frame khong ton tai.");
   const drawX = player.x + player.width / 2 - 32 - cameraX;
-  const drawY = player.y + player.height - 64;
+  const drawY = player.y + player.height - 64 - cameraY;
   context.save();
   if (player.facing < 0) {
     context.translate(Math.round(drawX + 64), 0);
@@ -1024,7 +1028,7 @@ function drawEffects(delta: number) {
     context.drawImage(
       image,
       Math.round(puff.x - cameraX),
-      Math.round(puff.y),
+      Math.round(puff.y - cameraY),
       Math.round(40 * puff.size),
       Math.round(36 * puff.size)
     );
@@ -1094,26 +1098,37 @@ function drawRemotePlayers() {
     if (p.status === "disconnected") continue;
     context.save();
     context.fillStyle = p.facing < 0 ? "#c94e37" : "#2f534b";
-    context.fillRect(Math.round(p.x - cameraX), Math.round(p.y), 24, 32);
+    context.fillRect(Math.round(p.x - cameraX), Math.round(p.y - cameraY), 24, 32);
     context.strokeStyle = "#ffffff";
     context.lineWidth = 2;
-    context.strokeRect(Math.round(p.x - cameraX), Math.round(p.y), 24, 32);
+    context.strokeRect(Math.round(p.x - cameraX), Math.round(p.y - cameraY), 24, 32);
     context.fillStyle = "#000000";
-    context.fillText(p.displayName, Math.round(p.x - cameraX + 2), Math.round(p.y) - 5);
+    context.fillText(p.displayName, Math.round(p.x - cameraX + 2), Math.round(p.y - cameraY) - 5);
     context.restore();
   }
 }
 
 function render(delta: number) {
-  cameraX = Math.max(0, Math.min(mapData.dimensions.width - viewport.width, player.x + player.width / 2 - viewport.width / 2));
+  const playerCenterX = player.x + player.width / 2;
+  const playerCenterY = player.y + player.height / 2;
+  if (mapData.dimensions.width >= viewport.width) {
+    cameraX = Math.max(0, Math.min(mapData.dimensions.width - viewport.width, playerCenterX - viewport.width / 2));
+  } else {
+    cameraX = (mapData.dimensions.width - viewport.width) / 2;
+  }
+  if (mapData.dimensions.height >= viewport.height) {
+    cameraY = Math.max(0, Math.min(mapData.dimensions.height - viewport.height, playerCenterY - viewport.height / 2));
+  } else {
+    cameraY = (mapData.dimensions.height - viewport.height) / 2;
+  }
   drawBackground();
   drawMap();
   drawItems();
   drawEnemies();
   drawBombs();
   drawEffects(delta);
-  drawEnvironment(context, cameraX, mapData.waterZones ?? [], mapData.lavaZones ?? []);
-  drawEquipments(context, cameraX, equipments);
+  drawEnvironment(context, cameraX, cameraY, mapData.waterZones ?? [], mapData.lavaZones ?? []);
+  drawEquipments(context, cameraX, cameraY, equipments);
   drawPlayer();
   drawRemotePlayers();
   drawHud();
@@ -1265,8 +1280,10 @@ initUI({
     if (authUser) {
       const el = document.querySelector("#account-info");
       if (el) el.textContent = `Đăng nhập dưới tên ${authUser.displayName} (${authUser.username})`;
+      setMode("account", "account");
+    } else {
+      setMode("login", "login");
     }
-    setMode("account", "account");
   },
   multiplayer: () => {
     refreshMultiplayerLobby();
@@ -1292,8 +1309,9 @@ initUI({
   },
   "mp-start": () => {
     if (!mpEnabled || !mpIsHost || !mpClient) return;
-    mpClient.sendSetMap(currentMapId);
+    mpClient.sendStartGame(currentMapId);
   },
+  "auth-show-login": () => setMode("login", "login"),
   "auth-login": async () => {
     const el = document.querySelector<HTMLInputElement>("#login-username");
     const pw = document.querySelector<HTMLInputElement>("#login-password");
