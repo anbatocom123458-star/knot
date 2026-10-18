@@ -45,7 +45,19 @@
     { "instanceId": "tile_000036", "assetId": "Z02", "x": 1472, "y": 416 },
     { "instanceId": "tile_000037", "assetId": "Z02", "x": 1504, "y": 416 },
     { "instanceId": "tile_000038", "assetId": "Z02", "x": 1536, "y": 416 },
-    { "instanceId": "tile_000039", "assetId": "Z03", "x": 1568, "y": 416 }
+    { "instanceId": "tile_000039", "assetId": "Z03", "x": 1568, "y": 416 },
+    { "instanceId": "tile_000040", "assetId": "Z04", "x": 480, "y": 416 },
+    { "instanceId": "tile_000041", "assetId": "Z05", "x": 480, "y": 448 },
+    { "instanceId": "tile_000042", "assetId": "Z05", "x": 480, "y": 480 },
+    { "instanceId": "tile_000043", "assetId": "Z06", "x": 480, "y": 512 },
+    { "instanceId": "tile_000044", "assetId": "Z04", "x": 1008, "y": 416 },
+    { "instanceId": "tile_000045", "assetId": "Z05", "x": 1008, "y": 448 },
+    { "instanceId": "tile_000046", "assetId": "Z05", "x": 1008, "y": 480 },
+    { "instanceId": "tile_000047", "assetId": "Z06", "x": 1008, "y": 512 },
+    { "instanceId": "tile_000048", "assetId": "Z04", "x": 1296, "y": 448 },
+    { "instanceId": "tile_000049", "assetId": "Z05", "x": 1296, "y": 480 },
+    { "instanceId": "tile_000050", "assetId": "Z05", "x": 1296, "y": 512 },
+    { "instanceId": "tile_000051", "assetId": "Z06", "x": 1296, "y": 544 }
   ],
   "hazards": [
     {
@@ -69,5 +81,51 @@
     "x": 1536,
     "y": 384,
     "hitbox": { "offsetX": 4, "offsetY": 4, "width": 24, "height": 28 }
-  }
+  },
+  "enemies": [
+    {
+      "instanceId": "enemy_000001",
+      "assetId": "EN01",
+      "x": 104,
+      "y": 416,
+      "hitbox": { "offsetX": 4, "offsetY": 14, "width": 24, "height": 18 },
+      "patrol": { "minX": 0, "maxX": 164 },
+      "speed": 60
+    },
+    {
+      "instanceId": "enemy_000002",
+      "assetId": "EN01",
+      "x": 576,
+      "y": 320,
+      "hitbox": { "offsetX": 4, "offsetY": 14, "width": 24, "height": 18 },
+      "patrol": { "minX": 544, "maxX": 672 },
+      "speed": 60
+    },
+    {
+      "instanceId": "enemy_000003",
+      "assetId": "EN01",
+      "x": 832,
+      "y": 352,
+      "hitbox": { "offsetX": 4, "offsetY": 14, "width": 24, "height": 18 },
+      "patrol": { "minX": 768, "maxX": 928 },
+      "speed": 60
+    },
+    {
+      "instanceId": "enemy_000004",
+      "assetId": "EN01",
+      "x": 1120,
+      "y": 320,
+      "hitbox": { "offsetX": 4, "offsetY": 14, "width": 24, "height": 18 },
+      "patrol": { "minX": 1056, "maxX": 1248 },
+      "speed": 60
+    }
+  ],
+  "items": [
+    { "instanceId": "item_000001", "assetId": "IT02", "kind": "coin", "x": 256, "y": 336, "hitbox": { "offsetX": 4, "offsetY": 4, "width": 24, "height": 24 } },
+    { "instanceId": "item_000002", "assetId": "IT02", "kind": "coin", "x": 488, "y": 368, "hitbox": { "offsetX": 4, "offsetY": 4, "width": 24, "height": 24 } },
+    { "instanceId": "item_000003", "assetId": "IT02", "kind": "coin", "x": 1016, "y": 368, "hitbox": { "offsetX": 4, "offsetY": 4, "width": 24, "height": 24 } },
+    { "instanceId": "item_000004", "assetId": "IT03", "kind": "gem", "x": 712, "y": 240, "hitbox": { "offsetX": 4, "offsetY": 4, "width": 24, "height": 24 } },
+    { "instanceId": "item_000005", "assetId": "IT04", "kind": "bomb", "x": 352, "y": 352, "hitbox": { "offsetX": 4, "offsetY": 4, "width": 24, "height": 24 } },
+    { "instanceId": "item_000006", "assetId": "IT04", "kind": "bomb", "x": 1088, "y": 320, "hitbox": { "offsetX": 4, "offsetY": 4, "width": 24, "height": 24 } }
+  ]
 }

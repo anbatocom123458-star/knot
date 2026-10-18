@@ -149,8 +149,11 @@ canvas {
 .direction { width: 54px; height: 48px; font-size: 23px; }
 .jump-button { width: 112px; height: 48px; gap: 8px; border-color: #cf715c; background: var(--accent); color: white; font-size: 17px; }
 .jump-button span { font-size: 10px; }
+.bomb-button { width: 96px; height: 48px; gap: 8px; border-color: #203b36; background: #2f534b; color: white; font-size: 15px; }
+.bomb-button span { font-size: 10px; font-weight: 700; letter-spacing: 0; }
 .control-button:active, .control-button.is-pressed { transform: translateY(1px); background: #e6eee4; }
 .jump-button:active, .jump-button.is-pressed { background: #c94e37; }
+.bomb-button:active, .bomb-button.is-pressed { background: #1d3a34; }
 
 .keyboard-hint {
   display: flex;
@@ -191,6 +194,7 @@ kbd {
   .controls { min-height: 68px; margin-top: 10px; }
   .direction { width: 50px; height: 46px; }
   .jump-button { width: 96px; height: 46px; }
+  .bomb-button { width: 84px; height: 46px; }
   .keyboard-hint { display: none; }
   .footer { padding-top: 12px; }
 }

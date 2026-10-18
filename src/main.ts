@@ -1,90 +1,40 @@
-// KNOT — MAP000001 demo. Converted1:1 from src/game.js (Vite + TypeScript migration);
-// gameplay values (canvas 960x540, physics, collision, BG01 parallax, input) are unchanged.
+// KNOT — MAP000001 gameplay (Stage 6). Vite + TypeScript migration kept the
+// original canvas 960x540, physics, camera and BG01 parallax unchanged.
+// Stage 6 adds: wall slide + wall jump, patrol enemies with stomp and
+// i-frame damage, collectible items and thrown bombs. Pure logic lives in
+// src/collision.ts, src/player-logic.ts, src/enemy.ts, src/item.ts,
+// src/bomb.ts and src/combat.ts (unit-tested with vitest).
 
-interface Rect {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-}
-
-interface Hitbox {
-  offsetX: number;
-  offsetY: number;
-  width: number;
-  height: number;
-}
-
-interface MapBlock {
-  instanceId: string;
-  assetId: string;
-  x: number;
-  y: number;
-}
-
-interface MapHazard {
-  instanceId: string;
-  assetId: string;
-  x: number;
-  y: number;
-  hitbox: Hitbox;
-}
-
-interface MapExit {
-  instanceId: string;
-  assetId: string;
-  x: number;
-  y: number;
-  hitbox: Hitbox;
-}
-
-interface MapData {
-  id: string;
-  name: string;
-  version: number;
-  tileSize: number;
-  dimensions: { width: number; height: number };
-  backgroundAssetId: string;
-  spawn: { x: number; y: number };
-  blocks: MapBlock[];
-  hazards: MapHazard[];
-  exit: MapExit;
-}
-
-interface AssetEntry {
-  id: string;
-  path: string;
-  frameFiles?: string[];
-}
-
-interface AssetRegistry {
-  schemaVersion: number;
-  project: string;
-  sources: Record<string, { name: string; url: string; license: string }>;
-  assets: AssetEntry[];
-}
-
-interface Player {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  velocityX: number;
-  velocityY: number;
-  grounded: boolean;
-  jumpsUsed: number;
-  facing: number;
-  walkTime: number;
-  doubleJumping: boolean;
-}
-
-interface Puff {
-  x: number;
-  y: number;
-  elapsed: number;
-}
-
-type ControlName = "left" | "right" | "jump";
+import { blockRect, detectWall, hitboxRect, overlap } from "./collision";
+import { applyDamage, isPlayerVisible, MAX_HP, tickInvulnerable } from "./combat";
+import {
+  createEnemies,
+  ENEMY_DEATH_DURATION,
+  enemyRect,
+  isStomp,
+  killEnemy,
+  STOMP_BOUNCE_VELOCITY,
+  updateEnemies,
+  type EnemyState
+} from "./enemy";
+import { collectItems, createItems, type ItemState } from "./item";
+import {
+  BOMB_SIZE,
+  createBomb,
+  explosionHitsRect,
+  updateBombs,
+  type ThrownBomb
+} from "./bomb";
+import { clampWallSlide, resolveJump } from "./player-logic";
+import type {
+  AssetRegistry,
+  ControlName,
+  Inventory,
+  MapData,
+  Player,
+  Puff,
+  Rect
+} from "./types";
 
 function requireElement<T>(value: T | null, message: string): T {
   if (value === null) throw new Error(message);
@@ -96,7 +46,9 @@ const context = requireElement(canvas.getContext("2d", { alpha: false }), "Khong
 const statusLabel = requireElement(document.querySelector("#status"), "Khong tim thay #status.");
 const tileSize = 32;
 const viewport = { width: canvas.width, height: canvas.height };
-const input = { left: false, right: false, jumpPressed: false };
+const EXPLOSION_PUFF_SCALE = 2.2;
+
+const input = { left: false, right: false, jumpPressed: false, bombPressed: false };
 const keyControls = new Map<string, ControlName>([
   ["ArrowLeft", "left"],
   ["KeyA", "left"],
@@ -107,11 +59,18 @@ const keyControls = new Map<string, ControlName>([
 let mapData!: MapData;
 let registry!: AssetRegistry;
 let assets = new Map<string, HTMLImageElement>();
+/** Solid tile rects; blocks never change at runtime, built once after load. */
+let solids: Rect[] = [];
 let cameraX = 0;
 let previousTime = 0;
+let gameTime = 0;
 let won = false;
 let player!: Player;
 let puffs: Puff[] = [];
+let enemies: EnemyState[] = [];
+let items: ItemState[] = [];
+let activeBombs: ThrownBomb[] = [];
+let inventory: Inventory = { coins: 0, gems: 0, bombs: 0 };
 
 context.imageSmoothingEnabled = false;
 
@@ -146,7 +105,7 @@ function imageFor(assetId: string) {
   return image;
 }
 
-function resetPlayer() {
+function resetWorld(message = "Sẵn sàng") {
   player = {
     x: mapData.spawn.x,
     y: mapData.spawn.y,
@@ -158,73 +117,64 @@ function resetPlayer() {
     jumpsUsed: 0,
     facing: 1,
     walkTime: 0,
-    doubleJumping: false
+    doubleJumping: false,
+    wallDir: 0,
+    wallJumpLock: 0,
+    hp: MAX_HP,
+    invulnerable: 0
   };
-  won = false;
+  enemies = createEnemies(mapData.enemies);
+  items = createItems(mapData.items);
+  activeBombs = [];
+  inventory = { coins: 0, gems: 0, bombs: 0 };
   puffs = [];
-  statusLabel.textContent = "Sẵn sàng";
-}
-
-function overlap(first: Rect, second: Rect) {
-  return first.x < second.x + second.width &&
-    first.x + first.width > second.x &&
-    first.y < second.y + second.height &&
-    first.y + first.height > second.y;
-}
-
-function blockRect(block: MapBlock): Rect {
-  return { x: block.x, y: block.y, width: tileSize, height: tileSize };
-}
-
-function obstacleRect(obstacle: MapHazard): Rect {
-  return {
-    x: obstacle.x + obstacle.hitbox.offsetX,
-    y: obstacle.y + obstacle.hitbox.offsetY,
-    width: obstacle.hitbox.width,
-    height: obstacle.hitbox.height
-  };
-}
-
-function triggerRect(trigger: MapExit): Rect {
-  return {
-    x: trigger.x + trigger.hitbox.offsetX,
-    y: trigger.y + trigger.hitbox.offsetY,
-    width: trigger.hitbox.width,
-    height: trigger.hitbox.height
-  };
-}
-
-function spawnPuff() {
-  puffs.push({ x: player.x + player.width / 2 - 20, y: player.y + player.height - 24, elapsed: 0 });
-}
-
-function consumeJump() {
-  if (!input.jumpPressed || won) return;
+  won = false;
+  // Clear pending edge presses so a reset cannot fire a jump/bomb mid-hold.
   input.jumpPressed = false;
-
-  if (player.grounded) {
-    player.velocityY = -520;
-    player.grounded = false;
-    player.jumpsUsed = 1;
-    player.doubleJumping = false;
-    return;
-  }
-
-  if (player.jumpsUsed === 1) {
-    player.velocityY = -470;
-    player.jumpsUsed = 2;
-    player.doubleJumping = true;
-    spawnPuff();
-  }
+  input.bombPressed = false;
+  statusLabel.textContent = message;
 }
 
-function respawn() {
-  resetPlayer();
-  statusLabel.textContent = "Thử lại nào";
+function respawn(message = "Thử lại nào") {
+  resetWorld(message);
+}
+
+function spawnPuff(
+  x = player.x + player.width / 2 - 20,
+  y = player.y + player.height - 24,
+  size = 1
+) {
+  puffs.push({ x, y, elapsed: 0, size });
 }
 
 function updatePlayer(delta: number) {
-  consumeJump();
+  player.wallJumpLock = Math.max(0, player.wallJumpLock - delta);
+  player.invulnerable = tickInvulnerable(player.invulnerable, delta);
+
+  // Jump press: grounded jump > wall jump > remaining mid-air jump.
+  // Wall contact comes from the previous frame's probe (set below).
+  if (input.jumpPressed && !won) {
+    input.jumpPressed = false;
+    const outcome = resolveJump({
+      jumpRequested: true,
+      grounded: player.grounded,
+      jumpsUsed: player.jumpsUsed,
+      wallDir: player.wallDir,
+      wallJumpLock: player.wallJumpLock
+    });
+    if (outcome) {
+      player.velocityY = outcome.velocityY;
+      if (outcome.velocityX !== undefined) player.velocityX = outcome.velocityX;
+      player.jumpsUsed = outcome.jumpsUsed;
+      player.doubleJumping = outcome.doubleJumping;
+      if (outcome.wallJumpLock !== undefined) {
+        player.wallJumpLock = outcome.wallJumpLock;
+        spawnPuff(); // wall-jump feedback reuses the landing puff
+      }
+      if (outcome.puff) spawnPuff();
+      player.grounded = false;
+    }
+  }
 
   const axis = Number(input.right) - Number(input.left);
   const maximumSpeed = 220;
@@ -241,7 +191,6 @@ function updatePlayer(delta: number) {
     player.velocityX = Math.abs(player.velocityX) <= amount ? 0 : player.velocityX - Math.sign(player.velocityX) * amount;
   }
 
-  const solids = mapData.blocks.map(blockRect);
   const previousX = player.x;
   player.x += player.velocityX * delta;
   for (const solid of solids) {
@@ -252,9 +201,20 @@ function updatePlayer(delta: number) {
   }
   player.x = Math.max(0, Math.min(mapData.dimensions.width - player.width, player.x));
 
+  // Wall probe drives both the wall jump (next frame) and the slide clamp.
+  player.wallDir = player.wallJumpLock > 0
+    ? 0
+    : detectWall(player.x, player.y, player.width, player.height, solids);
+
   const previousY = player.y;
   const previousBottom = previousY + player.height;
   player.velocityY = Math.min(player.velocityY + 1450 * delta, 780);
+  player.velocityY = clampWallSlide(player.velocityY, {
+    grounded: player.grounded,
+    wallDir: player.wallDir,
+    axis,
+    wallJumpLock: player.wallJumpLock
+  });
   player.y += player.velocityY * delta;
   player.grounded = false;
 
@@ -288,16 +248,104 @@ function updatePlayer(delta: number) {
     return;
   }
 
-  if (mapData.hazards.some((hazard) => overlap(player, obstacleRect(hazard)))) {
+  if (mapData.hazards.some((hazard) => overlap(player, hitboxRect(hazard.x, hazard.y, hazard.hitbox)))) {
     respawn();
     return;
   }
 
-  if (overlap(player, triggerRect(mapData.exit))) {
+  // Enemy contact: stomp first, otherwise one i-frame-protected hit.
+  for (const enemy of enemies) {
+    if (!enemy.alive) continue;
+    const enemyHitbox = enemyRect(enemy);
+    if (!overlap(player, enemyHitbox)) continue;
+    if (isStomp(previousBottom, player.y + player.height, enemyHitbox, player.velocityY)) {
+      killEnemy(enemy);
+      player.velocityY = STOMP_BOUNCE_VELOCITY;
+      player.jumpsUsed = 1; // one air jump remains after the bounce
+      player.doubleJumping = false;
+      spawnPuff();
+      statusLabel.textContent = "Trúng đích!";
+      break;
+    }
+    const hit = applyDamage(
+      player.hp,
+      player.invulnerable,
+      player.x + player.width / 2,
+      enemyHitbox.x + enemyHitbox.width / 2,
+      player.facing
+    );
+    if (!hit.applied) continue; // i-frames: another enemy could still be stomped
+    player.hp = hit.hp;
+    player.invulnerable = hit.invulnerable;
+    if (hit.velocityX !== undefined) player.velocityX = hit.velocityX;
+    if (hit.velocityY !== undefined) player.velocityY = hit.velocityY;
+    if (hit.died) {
+      respawn("Bạn đã ngã! Chơi lại nào");
+      return;
+    }
+    statusLabel.textContent = "Bị trúng đòn!";
+    break;
+  }
+
+  // Item pickups.
+  for (const item of collectItems(items, player)) {
+    if (item.kind === "coin") {
+      inventory.coins += 1;
+      statusLabel.textContent = `Đồng xu ×${inventory.coins}`;
+    } else if (item.kind === "gem") {
+      inventory.gems += 1;
+      spawnPuff();
+      statusLabel.textContent = `Ngọc ×${inventory.gems}`;
+    } else {
+      inventory.bombs += 1;
+      spawnPuff();
+      statusLabel.textContent = `Có ${inventory.bombs} bom — bấm B / nút BOMB`;
+    }
+  }
+
+  if (overlap(player, hitboxRect(mapData.exit.x, mapData.exit.y, mapData.exit.hitbox))) {
     won = true;
     input.left = false;
     input.right = false;
     statusLabel.textContent = "Đã đến cổng!";
+  }
+}
+
+function throwBombIfRequested() {
+  if (!input.bombPressed) return;
+  input.bombPressed = false;
+  if (inventory.bombs <= 0) {
+    statusLabel.textContent = "Chưa có bom — hãy nhặt bom trong map";
+    return;
+  }
+  inventory.bombs -= 1;
+  activeBombs.push(createBomb(player.x, player.y + player.height - BOMB_SIZE, player.facing));
+  spawnPuff();
+  statusLabel.textContent = `Còn ${inventory.bombs} bom`;
+}
+
+function update(delta: number) {
+  throwBombIfRequested();
+  updatePlayer(delta);
+  updateEnemies(enemies, solids, delta);
+  const result = updateBombs(activeBombs, solids, delta);
+  activeBombs = result.bombs;
+  for (const explosion of result.explosions) {
+    spawnPuff(
+      explosion.x - 20 * EXPLOSION_PUFF_SCALE,
+      explosion.y - 18 * EXPLOSION_PUFF_SCALE,
+      EXPLOSION_PUFF_SCALE
+    );
+    let destroyed = 0;
+    for (const enemy of enemies) {
+      if (enemy.alive && explosionHitsRect(explosion, enemyRect(enemy))) {
+        killEnemy(enemy);
+        destroyed += 1;
+      }
+    }
+    statusLabel.textContent = destroyed > 0
+      ? `Bùm! Tiêu diệt ${destroyed} quái!`
+      : "Bùm!";
   }
 }
 
@@ -325,6 +373,57 @@ function drawMap() {
   context.drawImage(imageFor(mapData.exit.assetId), Math.round(mapData.exit.x - cameraX), mapData.exit.y, tileSize, tileSize);
 }
 
+function drawItems() {
+  for (const item of items) {
+    if (item.collected) continue;
+    const bob = Math.sin(gameTime * 3 + item.x * 0.05) * 3;
+    context.drawImage(
+      imageFor(item.assetId),
+      Math.round(item.x - cameraX),
+      Math.round(item.y + bob),
+      item.width,
+      item.height
+    );
+  }
+}
+
+function drawEnemies() {
+  for (const enemy of enemies) {
+    const drawX = Math.round(enemy.x - cameraX);
+    if (!enemy.alive) {
+      if (enemy.deathElapsed >= ENEMY_DEATH_DURATION) continue;
+      context.save();
+      context.globalAlpha = Math.max(0, 1 - enemy.deathElapsed / ENEMY_DEATH_DURATION);
+      context.drawImage(imageFor("EN03"), drawX, enemy.y, enemy.width, enemy.height);
+      context.restore();
+      continue;
+    }
+    const frameId = Math.floor(enemy.walkTime / 0.18) % 2 === 0 ? "EN01" : "EN02";
+    const image = imageFor(frameId);
+    if (enemy.direction < 0) {
+      context.save();
+      context.translate(drawX + enemy.width, 0);
+      context.scale(-1, 1);
+      context.drawImage(image, 0, enemy.y, enemy.width, enemy.height);
+      context.restore();
+    } else {
+      context.drawImage(image, drawX, enemy.y, enemy.width, enemy.height);
+    }
+  }
+}
+
+function drawBombs() {
+  for (const bomb of activeBombs) {
+    context.drawImage(
+      imageFor("IT05"),
+      Math.round(bomb.x - cameraX),
+      Math.round(bomb.y),
+      bomb.width,
+      bomb.height
+    );
+  }
+}
+
 function currentCharacterFrame() {
   if (!player.grounded) return assets.get(assetPath("AN03"));
   if (Math.abs(player.velocityX) < 8) return assets.get(assetPath("AN01"));
@@ -335,6 +434,7 @@ function currentCharacterFrame() {
 }
 
 function drawPlayer() {
+  if (!isPlayerVisible(player.invulnerable)) return; // blink during i-frames
   const image = currentCharacterFrame();
   if (!image) throw new Error("Khong ve duoc nhan vat: frame khong ton tai.");
   const drawX = player.x + player.width / 2 - 32 - cameraX;
@@ -361,8 +461,43 @@ function drawEffects(delta: number) {
     const frame = Math.min(frames.length - 1, Math.floor(puff.elapsed / frameDuration));
     const image = assets.get(frames[frame]);
     if (!image) continue;
-    context.drawImage(image, Math.round(puff.x - cameraX), Math.round(puff.y), 40, 36);
+    context.drawImage(
+      image,
+      Math.round(puff.x - cameraX),
+      Math.round(puff.y),
+      Math.round(40 * puff.size),
+      Math.round(36 * puff.size)
+    );
   }
+}
+
+function drawHud() {
+  const y = viewport.height - 15;
+  context.save();
+  context.font = "700 15px Trebuchet MS, sans-serif";
+  context.textBaseline = "alphabetic";
+  context.lineWidth = 3;
+  context.lineJoin = "round";
+  context.strokeStyle = "rgb(250 252 247 / 85%)";
+
+  context.textAlign = "left";
+  let heartX = 16;
+  for (let i = 0; i < MAX_HP; i++) {
+    context.fillStyle = i < player.hp ? "#df6349" : "rgb(32 59 54 / 30%)";
+    context.strokeText("♥", heartX, y);
+    context.fillText("♥", heartX, y);
+    heartX += 20;
+  }
+  context.fillStyle = "#203b36";
+  const bombText = `BOM ×${inventory.bombs} [B]`;
+  context.strokeText(bombText, heartX + 8, y);
+  context.fillText(bombText, heartX + 8, y);
+
+  context.textAlign = "right";
+  const pickupText = `COIN ×${inventory.coins}   GEM ×${inventory.gems}`;
+  context.strokeText(pickupText, viewport.width - 16, y);
+  context.fillText(pickupText, viewport.width - 16, y);
+  context.restore();
 }
 
 function drawOverlay() {
@@ -383,15 +518,20 @@ function render(delta: number) {
   cameraX = Math.max(0, Math.min(mapData.dimensions.width - viewport.width, player.x + player.width / 2 - viewport.width / 2));
   drawBackground();
   drawMap();
+  drawItems();
+  drawEnemies();
+  drawBombs();
   drawEffects(delta);
   drawPlayer();
+  drawHud();
   drawOverlay();
 }
 
 function frame(time: number) {
   const delta = Math.min((time - previousTime) / 1000 || 0, 1 / 30);
   previousTime = time;
-  if (!won) updatePlayer(delta);
+  gameTime += delta;
+  if (!won) update(delta);
   render(delta);
   requestAnimationFrame(frame);
 }
@@ -399,9 +539,13 @@ function frame(time: number) {
 function setControl(control: ControlName, pressed: boolean) {
   if (control === "jump") {
     if (pressed) input.jumpPressed = true;
-  } else {
-    input[control] = pressed;
+    return;
   }
+  if (control === "bomb") {
+    if (pressed) input.bombPressed = true;
+    return;
+  }
+  input[control] = pressed;
 }
 
 for (const button of document.querySelectorAll<HTMLButtonElement>("[data-control]")) {
@@ -415,7 +559,7 @@ for (const button of document.querySelectorAll<HTMLButtonElement>("[data-control
   });
   const release = () => {
     button.classList.remove("is-pressed");
-    if (control !== "jump") setControl(control, false);
+    if (control !== "jump" && control !== "bomb") setControl(control, false);
   };
   button.addEventListener("pointerup", release);
   button.addEventListener("pointercancel", release);
@@ -430,6 +574,9 @@ window.addEventListener("keydown", (event) => {
   } else if (event.code === "Space") {
     event.preventDefault();
     if (!event.repeat) setControl("jump", true);
+  } else if (event.code === "KeyB") {
+    event.preventDefault();
+    if (!event.repeat) setControl("bomb", true);
   }
 });
 
@@ -443,7 +590,7 @@ window.addEventListener("blur", () => {
   input.right = false;
 });
 
-document.querySelector("#reset")?.addEventListener("click", resetPlayer);
+document.querySelector("#reset")?.addEventListener("click", () => resetWorld());
 
 async function start() {
   try {
@@ -453,8 +600,9 @@ async function start() {
     ]);
     if (!registryResponse.ok || !mapResponse.ok) throw new Error("Khong doc duoc Registry hoac map.");
     [registry, mapData] = await Promise.all([registryResponse.json(), mapResponse.json()]);
+    solids = mapData.blocks.map((block) => blockRect(block, tileSize));
     await loadAssets();
-    resetPlayer();
+    resetWorld();
     requestAnimationFrame(frame);
   } catch (error) {
     statusLabel.textContent = "Không tải được asset";
@@ -463,7 +611,3 @@ async function start() {
 }
 
 start();
-
-
-
-
