@@ -1,35 +1,128 @@
-const canvas = document.querySelector("#game");
-const context = canvas.getContext("2d", { alpha: false });
-const statusLabel = document.querySelector("#status");
+// KNOT — MAP000001 demo. Converted1:1 from src/game.js (Vite + TypeScript migration);
+// gameplay values (canvas 960x540, physics, collision, BG01 parallax, input) are unchanged.
+
+interface Rect {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+}
+
+interface Hitbox {
+  offsetX: number;
+  offsetY: number;
+  width: number;
+  height: number;
+}
+
+interface MapBlock {
+  instanceId: string;
+  assetId: string;
+  x: number;
+  y: number;
+}
+
+interface MapHazard {
+  instanceId: string;
+  assetId: string;
+  x: number;
+  y: number;
+  hitbox: Hitbox;
+}
+
+interface MapExit {
+  instanceId: string;
+  assetId: string;
+  x: number;
+  y: number;
+  hitbox: Hitbox;
+}
+
+interface MapData {
+  id: string;
+  name: string;
+  version: number;
+  tileSize: number;
+  dimensions: { width: number; height: number };
+  backgroundAssetId: string;
+  spawn: { x: number; y: number };
+  blocks: MapBlock[];
+  hazards: MapHazard[];
+  exit: MapExit;
+}
+
+interface AssetEntry {
+  id: string;
+  path: string;
+  frameFiles?: string[];
+}
+
+interface AssetRegistry {
+  schemaVersion: number;
+  project: string;
+  sources: Record<string, { name: string; url: string; license: string }>;
+  assets: AssetEntry[];
+}
+
+interface Player {
+  x: number;
+  y: number;
+  width: number;
+  height: number;
+  velocityX: number;
+  velocityY: number;
+  grounded: boolean;
+  jumpsUsed: number;
+  facing: number;
+  walkTime: number;
+  doubleJumping: boolean;
+}
+
+interface Puff {
+  x: number;
+  y: number;
+  elapsed: number;
+}
+
+type ControlName = "left" | "right" | "jump";
+
+function requireElement<T>(value: T | null, message: string): T {
+  if (value === null) throw new Error(message);
+  return value;
+}
+
+const canvas = requireElement(document.querySelector<HTMLCanvasElement>("#game"), "Khong tim thay the canvas #game.");
+const context = requireElement(canvas.getContext("2d", { alpha: false }), "Khong tao duoc bo ve 2d.");
+const statusLabel = requireElement(document.querySelector("#status"), "Khong tim thay #status.");
 const tileSize = 32;
 const viewport = { width: canvas.width, height: canvas.height };
 const input = { left: false, right: false, jumpPressed: false };
-const keyControls = new Map([
+const keyControls = new Map<string, ControlName>([
   ["ArrowLeft", "left"],
   ["KeyA", "left"],
   ["ArrowRight", "right"],
   ["KeyD", "right"]
 ]);
 
-let mapData;
-let registry;
-let assets = new Map();
+let mapData!: MapData;
+let registry!: AssetRegistry;
+let assets = new Map<string, HTMLImageElement>();
 let cameraX = 0;
 let previousTime = 0;
 let won = false;
-let player;
-let puffs = [];
+let player!: Player;
+let puffs: Puff[] = [];
 
 context.imageSmoothingEnabled = false;
 
-function assetPath(assetId) {
+function assetPath(assetId: string) {
   const asset = registry.assets.find((entry) => entry.id === assetId);
   if (!asset) throw new Error(`Asset ID khong ton tai: ${assetId}`);
   return asset.path;
 }
 
-function loadImage(path) {
-  return new Promise((resolve, reject) => {
+function loadImage(path: string) {
+  return new Promise<HTMLImageElement>((resolve, reject) => {
     const image = new Image();
     image.onload = () => resolve(image);
     image.onerror = () => reject(new Error(`Khong tai duoc asset: ${path}`));
@@ -38,17 +131,19 @@ function loadImage(path) {
 }
 
 async function loadAssets() {
-  const paths = new Set();
+  const paths = new Set<string>();
   for (const entry of registry.assets) {
     paths.add(entry.path);
     for (const framePath of entry.frameFiles ?? []) paths.add(framePath);
   }
-  const loaded = await Promise.all([...paths].map(async (path) => [path, await loadImage(path)]));
+  const loaded = await Promise.all([...paths].map(async (path) => [path, await loadImage(path)] as const));
   assets = new Map(loaded);
 }
 
-function imageFor(assetId) {
-  return assets.get(assetPath(assetId));
+function imageFor(assetId: string) {
+  const image = assets.get(assetPath(assetId));
+  if (!image) throw new Error(`Asset chua duoc tai: ${assetId}`);
+  return image;
 }
 
 function resetPlayer() {
@@ -70,18 +165,18 @@ function resetPlayer() {
   statusLabel.textContent = "Sẵn sàng";
 }
 
-function overlap(first, second) {
+function overlap(first: Rect, second: Rect) {
   return first.x < second.x + second.width &&
     first.x + first.width > second.x &&
     first.y < second.y + second.height &&
     first.y + first.height > second.y;
 }
 
-function blockRect(block) {
+function blockRect(block: MapBlock): Rect {
   return { x: block.x, y: block.y, width: tileSize, height: tileSize };
 }
 
-function obstacleRect(obstacle) {
+function obstacleRect(obstacle: MapHazard): Rect {
   return {
     x: obstacle.x + obstacle.hitbox.offsetX,
     y: obstacle.y + obstacle.hitbox.offsetY,
@@ -90,7 +185,7 @@ function obstacleRect(obstacle) {
   };
 }
 
-function triggerRect(trigger) {
+function triggerRect(trigger: MapExit): Rect {
   return {
     x: trigger.x + trigger.hitbox.offsetX,
     y: trigger.y + trigger.hitbox.offsetY,
@@ -128,7 +223,7 @@ function respawn() {
   statusLabel.textContent = "Thử lại nào";
 }
 
-function updatePlayer(delta) {
+function updatePlayer(delta: number) {
   consumeJump();
 
   const axis = Number(input.right) - Number(input.left);
@@ -231,15 +326,17 @@ function drawMap() {
 }
 
 function currentCharacterFrame() {
-  if (!player.grounded) return assets.get(registry.assets.find((entry) => entry.id === "AN03").path);
-  if (Math.abs(player.velocityX) < 8) return assets.get(registry.assets.find((entry) => entry.id === "AN01").path);
+  if (!player.grounded) return assets.get(assetPath("AN03"));
+  if (Math.abs(player.velocityX) < 8) return assets.get(assetPath("AN01"));
   const walk = registry.assets.find((entry) => entry.id === "AN02");
+  if (!walk?.frameFiles) throw new Error("Asset ID khong ton tai: AN02");
   const index = Math.floor(player.walkTime / 0.16) % walk.frameFiles.length;
   return assets.get(walk.frameFiles[index]);
 }
 
 function drawPlayer() {
   const image = currentCharacterFrame();
+  if (!image) throw new Error("Khong ve duoc nhan vat: frame khong ton tai.");
   const drawX = player.x + player.width / 2 - 32 - cameraX;
   const drawY = player.y + player.height - 64;
   context.save();
@@ -253,14 +350,17 @@ function drawPlayer() {
   context.restore();
 }
 
-function drawEffects(delta) {
+function drawEffects(delta: number) {
   const effect = registry.assets.find((entry) => entry.id === "FX01");
   const frameDuration = 0.045;
-  puffs = puffs.filter((puff) => puff.elapsed < frameDuration * effect.frameFiles.length);
+  if (!effect?.frameFiles) return;
+  const frames = effect.frameFiles;
+  puffs = puffs.filter((puff) => puff.elapsed < frameDuration * frames.length);
   for (const puff of puffs) {
     puff.elapsed += delta;
-    const frame = Math.min(effect.frameFiles.length - 1, Math.floor(puff.elapsed / frameDuration));
-    const image = assets.get(effect.frameFiles[frame]);
+    const frame = Math.min(frames.length - 1, Math.floor(puff.elapsed / frameDuration));
+    const image = assets.get(frames[frame]);
+    if (!image) continue;
     context.drawImage(image, Math.round(puff.x - cameraX), Math.round(puff.y), 40, 36);
   }
 }
@@ -279,7 +379,7 @@ function drawOverlay() {
   context.fillText("MAP000001 · FIELD CLEAR", viewport.width / 2, viewport.height / 2 + 22);
 }
 
-function render(delta) {
+function render(delta: number) {
   cameraX = Math.max(0, Math.min(mapData.dimensions.width - viewport.width, player.x + player.width / 2 - viewport.width / 2));
   drawBackground();
   drawMap();
@@ -288,7 +388,7 @@ function render(delta) {
   drawOverlay();
 }
 
-function frame(time) {
+function frame(time: number) {
   const delta = Math.min((time - previousTime) / 1000 || 0, 1 / 30);
   previousTime = time;
   if (!won) updatePlayer(delta);
@@ -296,7 +396,7 @@ function frame(time) {
   requestAnimationFrame(frame);
 }
 
-function setControl(control, pressed) {
+function setControl(control: ControlName, pressed: boolean) {
   if (control === "jump") {
     if (pressed) input.jumpPressed = true;
   } else {
@@ -304,8 +404,9 @@ function setControl(control, pressed) {
   }
 }
 
-for (const button of document.querySelectorAll("[data-control]")) {
-  const control = button.dataset.control;
+for (const button of document.querySelectorAll<HTMLButtonElement>("[data-control]")) {
+  const control = button.dataset.control as ControlName | undefined;
+  if (!control) continue;
   button.addEventListener("pointerdown", (event) => {
     event.preventDefault();
     button.setPointerCapture(event.pointerId);
@@ -322,9 +423,10 @@ for (const button of document.querySelectorAll("[data-control]")) {
 }
 
 window.addEventListener("keydown", (event) => {
-  if (keyControls.has(event.code)) {
+  const action = keyControls.get(event.code);
+  if (action) {
     event.preventDefault();
-    setControl(keyControls.get(event.code), true);
+    setControl(action, true);
   } else if (event.code === "Space") {
     event.preventDefault();
     if (!event.repeat) setControl("jump", true);
@@ -341,7 +443,7 @@ window.addEventListener("blur", () => {
   input.right = false;
 });
 
-document.querySelector("#reset").addEventListener("click", resetPlayer);
+document.querySelector("#reset")?.addEventListener("click", resetPlayer);
 
 async function start() {
   try {
@@ -361,3 +463,7 @@ async function start() {
 }
 
 start();
+
+
+
+

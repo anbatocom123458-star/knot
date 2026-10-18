@@ -2,13 +2,16 @@
 
 ## Chay thu MAP000001
 
-Repository hien chua co engine, framework hoac package manager. Demo giai doan 2 la trang web tinh, khong them dependency.
+Demo da chuyen sang Vite + TypeScript (Node.js 20.19+ de chay dev server). Code gameplay, HTML va CSS giu nguyen so voi ban web tinh truoc do.
 
 ```sh
-python3 -m http.server 8000
+npm install
+npm run dev
 ```
 
-Mo `http://localhost:8000`. Tren PC dung `A`/`D` hoac phim mui ten de di chuyen, `Space` de nhay. Tren dien thoai dung cac nut ben duoi khung choi. Nhan Space/nut nhay moi lan de su dung tung luot nhay; giu phim khong kich hoat lap.
+Mo `http://localhost:5173`. Lenh khac: `npm run build` (kiem tra TypeScript va dan xuong `dist/`, ke ca `data/`, `maps/`, `assets/`), `npm run preview` (chay ban build `dist/`), `npm run typecheck`.
+
+Tren PC dung `A`/`D` hoac phim mui ten de di chuyen, `Space` de nhay. Tren dien thoai dung cac nut ben duoi khung choi. Nhan Space/nut nhay moi lan de su dung tung luot nhay; giu phim khong kich hoat lap.
 
 Map nam tai `maps/MAP000001/map.json`. Asset Registry va quy chuan ID nam trong `data/`. Asset Kenney duoc dung truc tiep tu `assets/source/kenney/`; file goc va cac archive khong bi sua.
 
