@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f1f5ee">
+    <title>KNOT | MAP000001</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="src/game.js" type="module"></script>
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="wordmark" href="./" aria-label="KNOT, quay lại MAP000001">KNOT<span>.</span></a>
+        <div class="map-label"><span class="live-mark"></span><span>MAP000001</span><span class="separator">/</span><span>FIRST KNOT</span></div>
+        <button class="reset-button" id="reset" type="button" aria-label="Choi lai man" title="Choi lai man">↻</button>
+      </header>
+
+      <section class="game-shell" aria-label="Ban choi">
+        <canvas id="game" width="960" height="540" aria-label="Ban choi platformer MAP000001"></canvas>
+        <div class="game-status" aria-live="polite">
+          <span class="status-dot"></span>
+          <span id="status">Sẵn sàng</span>
+        </div>
+        <div class="map-stamp">K-001 <span>•</span> 1 PLAYER</div>
+      </section>
+
+      <section class="controls" aria-label="Điều khiển">
+        <div class="movement-controls">
+          <button class="control-button direction" type="button" data-control="left" aria-label="Di chuyển sang trái">←</button>
+          <button class="control-button direction" type="button" data-control="right" aria-label="Di chuyển sang phải">→</button>
+        </div>
+        <button class="control-button jump-button" type="button" data-control="jump" aria-label="Nhảy">↑ <span>JUMP</span></button>
+        <div class="keyboard-hint"><kbd>A</kbd><kbd>D</kbd><span>hoặc</span><kbd>←</kbd><kbd>→</kbd><span>di chuyển</span><i></i><kbd>SPACE</kbd><span>nhảy / nhảy kép</span></div>
+      </section>
+
+      <footer class="footer"><span>KNOT FIELD TEST</span><span>ASSET SET 01 <b>·</b> MANUAL MAP</span></footer>
+    </main>
+  </body>
+</html>

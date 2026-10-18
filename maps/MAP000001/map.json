@@ -1,0 +1,73 @@
+{
+  "id": "MAP000001",
+  "name": "First Knot",
+  "version": 1,
+  "tileSize": 32,
+  "dimensions": { "width": 1600, "height": 576 },
+  "backgroundAssetId": "BG01",
+  "spawn": { "x": 64, "y": 416 },
+  "blocks": [
+    { "instanceId": "tile_000001", "assetId": "Z01", "x": 0, "y": 448 },
+    { "instanceId": "tile_000002", "assetId": "Z02", "x": 32, "y": 448 },
+    { "instanceId": "tile_000003", "assetId": "Z02", "x": 64, "y": 448 },
+    { "instanceId": "tile_000004", "assetId": "Z02", "x": 96, "y": 448 },
+    { "instanceId": "tile_000005", "assetId": "Z02", "x": 128, "y": 448 },
+    { "instanceId": "tile_000006", "assetId": "Z02", "x": 160, "y": 448 },
+    { "instanceId": "tile_000007", "assetId": "Z02", "x": 192, "y": 448 },
+    { "instanceId": "tile_000008", "assetId": "Z03", "x": 224, "y": 448 },
+    { "instanceId": "tile_000009", "assetId": "Z01", "x": 320, "y": 384 },
+    { "instanceId": "tile_000010", "assetId": "Z02", "x": 352, "y": 384 },
+    { "instanceId": "tile_000011", "assetId": "Z02", "x": 384, "y": 384 },
+    { "instanceId": "tile_000012", "assetId": "Z02", "x": 416, "y": 384 },
+    { "instanceId": "tile_000013", "assetId": "Z03", "x": 448, "y": 384 },
+    { "instanceId": "tile_000014", "assetId": "Z01", "x": 544, "y": 352 },
+    { "instanceId": "tile_000015", "assetId": "Z02", "x": 576, "y": 352 },
+    { "instanceId": "tile_000016", "assetId": "Z02", "x": 608, "y": 352 },
+    { "instanceId": "tile_000017", "assetId": "Z02", "x": 640, "y": 352 },
+    { "instanceId": "tile_000018", "assetId": "Z03", "x": 672, "y": 352 },
+    { "instanceId": "tile_000019", "assetId": "Z01", "x": 768, "y": 384 },
+    { "instanceId": "tile_000020", "assetId": "Z02", "x": 800, "y": 384 },
+    { "instanceId": "tile_000021", "assetId": "Z02", "x": 832, "y": 384 },
+    { "instanceId": "tile_000022", "assetId": "Z02", "x": 864, "y": 384 },
+    { "instanceId": "tile_000023", "assetId": "Z02", "x": 896, "y": 384 },
+    { "instanceId": "tile_000024", "assetId": "Z02", "x": 928, "y": 384 },
+    { "instanceId": "tile_000025", "assetId": "Z03", "x": 960, "y": 384 },
+    { "instanceId": "tile_000026", "assetId": "Z01", "x": 1056, "y": 352 },
+    { "instanceId": "tile_000027", "assetId": "Z02", "x": 1088, "y": 352 },
+    { "instanceId": "tile_000028", "assetId": "Z02", "x": 1120, "y": 352 },
+    { "instanceId": "tile_000029", "assetId": "Z02", "x": 1152, "y": 352 },
+    { "instanceId": "tile_000030", "assetId": "Z02", "x": 1184, "y": 352 },
+    { "instanceId": "tile_000031", "assetId": "Z02", "x": 1216, "y": 352 },
+    { "instanceId": "tile_000032", "assetId": "Z03", "x": 1248, "y": 352 },
+    { "instanceId": "tile_000033", "assetId": "Z01", "x": 1376, "y": 416 },
+    { "instanceId": "tile_000034", "assetId": "Z02", "x": 1408, "y": 416 },
+    { "instanceId": "tile_000035", "assetId": "Z02", "x": 1440, "y": 416 },
+    { "instanceId": "tile_000036", "assetId": "Z02", "x": 1472, "y": 416 },
+    { "instanceId": "tile_000037", "assetId": "Z02", "x": 1504, "y": 416 },
+    { "instanceId": "tile_000038", "assetId": "Z02", "x": 1536, "y": 416 },
+    { "instanceId": "tile_000039", "assetId": "Z03", "x": 1568, "y": 416 }
+  ],
+  "hazards": [
+    {
+      "instanceId": "spike_000001",
+      "assetId": "OB01",
+      "x": 160,
+      "y": 416,
+      "hitbox": { "offsetX": 4, "offsetY": 12, "width": 24, "height": 18 }
+    },
+    {
+      "instanceId": "spike_000002",
+      "assetId": "OB01",
+      "x": 928,
+      "y": 352,
+      "hitbox": { "offsetX": 4, "offsetY": 12, "width": 24, "height": 18 }
+    }
+  ],
+  "exit": {
+    "instanceId": "exit_000001",
+    "assetId": "IT01",
+    "x": 1536,
+    "y": 384,
+    "hitbox": { "offsetX": 4, "offsetY": 4, "width": 24, "height": 28 }
+  }
+}
