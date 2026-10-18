@@ -136,6 +136,7 @@ let mpPlayers: RemotePlayer[] = [];
 let mpSeq = 0;
 let mpRoomId: string | null = null;
 let mpIsHost = false;
+let mpMapLoadPending = false;
 
 /** Auth state (client-side). Token is held in memory + sessionStorage; the
  *  backend issues an HttpOnly session cookie, so API calls use credentials. */
@@ -407,11 +408,17 @@ function startMultiplayer(roomId: string | null, create: boolean): void {
     mpPlayers = players;
     refreshMultiplayerLobby();
   });
-  mpClient.onMapChanged((mapId) => {
-    if (mapId) void startMapRun(mapId);
+  mpClient.onMapChanged(async (mapId) => {
+    if (!mapId || mpMapLoadPending) return;
+    mpMapLoadPending = true;
+    try { await startMapRun(mapId); }
+    finally { mpMapLoadPending = false; }
   });
-  mpClient.onGameStarted((mapId) => {
-    if (mapId) void startMapRun(mapId);
+  mpClient.onGameStarted(async (mapId) => {
+    if (!mapId || mpMapLoadPending) return;
+    mpMapLoadPending = true;
+    try { await startMapRun(mapId); }
+    finally { mpMapLoadPending = false; }
   });
   mpClient.onErrorMessage((message) => {
     statusLabel.textContent = message;
